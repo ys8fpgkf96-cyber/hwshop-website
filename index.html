@@ -1,0 +1,1259 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HW shop｜當代女裝選物</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Noto+Serif+TC:wght@400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ivory:#FDFBF8;
+    --ivory-2:#F8F2ED;
+    --blush:#F3DEE3;
+    --blush-2:#EFD2D9;
+    --rose:#C97B8B;
+    --rose-dark:#B15E70;
+    --wine:#6B2737;
+    --charcoal:#2B2523;
+    --charcoal-soft:#5A5250;
+    --gold:#B8935F;
+    --gold-light:#D8BD91;
+    --white:#FFFFFF;
+    --shadow: 0 20px 60px -20px rgba(107,39,55,0.18);
+    --ease: cubic-bezier(.22,.61,.36,1);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--ivory);
+    color:var(--charcoal);
+    font-family:'Noto Sans TC','Noto Serif TC',serif;
+    font-weight:300;
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.serif{
+    font-family:'Cormorant Garamond','Noto Serif TC',serif;
+    font-weight:500;
+    letter-spacing:.02em;
+    margin:0;
+  }
+  a{color:inherit;text-decoration:none;}
+  button{font-family:inherit;cursor:pointer;}
+  img,svg{display:block;}
+  .eyebrow{
+    font-family:'Noto Sans TC',sans-serif;
+    font-size:12.5px;
+    letter-spacing:.28em;
+    text-transform:uppercase;
+    color:var(--gold);
+    font-weight:500;
+  }
+  .wrap{max-width:1180px;margin:0 auto;padding:0 32px;}
+
+  /* ---------- Ribbon Divider (signature motif) ---------- */
+  .ribbon-divider{
+    display:flex;align-items:center;justify-content:center;gap:14px;
+    margin:0 auto;padding:6px 0;
+  }
+  .ribbon-divider svg{opacity:.85;}
+  .ribbon-line{flex:1;max-width:220px;height:1px;background:linear-gradient(90deg,transparent,var(--gold-light),transparent);}
+
+  /* ---------- Header ---------- */
+  header{
+    position:sticky;top:0;z-index:60;
+    background:rgba(253,251,248,0.86);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid rgba(184,147,95,0.18);
+  }
+  .nav{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:18px 32px;max-width:1180px;margin:0 auto;
+  }
+  .logo{
+    font-family:'Cormorant Garamond',serif;
+    font-size:26px;letter-spacing:.14em;
+    display:flex;align-items:center;gap:10px;
+  }
+  .logo .mark{
+    width:34px;height:34px;border-radius:50%;
+    border:1px solid var(--gold);
+    display:flex;align-items:center;justify-content:center;
+    font-size:13px;letter-spacing:0;color:var(--wine);
+    font-family:'Cormorant Garamond',serif;
+  }
+  .nav-links{display:flex;gap:38px;font-size:14.5px;letter-spacing:.04em;color:var(--charcoal-soft);}
+  .nav-links a{position:relative;padding:4px 0;transition:color .3s var(--ease);}
+  .nav-links a::after{
+    content:'';position:absolute;left:0;right:0;bottom:-2px;height:1px;background:var(--rose);
+    transform:scaleX(0);transform-origin:right;transition:transform .35s var(--ease);
+  }
+  .nav-links a:hover{color:var(--wine);}
+  .nav-links a:hover::after{transform:scaleX(1);transform-origin:left;}
+  .nav-right{display:flex;align-items:center;gap:22px;}
+  .icon-btn{position:relative;background:none;border:none;color:var(--charcoal);padding:6px;}
+  .cart-count{
+    position:absolute;top:-4px;right:-6px;background:var(--wine);color:#fff;
+    font-size:10.5px;min-width:17px;height:17px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;font-family:'Noto Sans TC';
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    display:grid;grid-template-columns:1.05fr 0.95fr;align-items:center;
+    gap:40px;padding:76px 32px 90px;max-width:1180px;margin:0 auto;
+  }
+  .hero h1{
+    font-size:clamp(38px,5vw,60px);line-height:1.18;margin:18px 0 22px;color:var(--charcoal);
+  }
+  .hero h1 em{font-style:italic;color:var(--wine);}
+  .hero p{color:var(--charcoal-soft);font-size:16px;max-width:420px;margin-bottom:34px;}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:14px 32px;border-radius:2px;border:1px solid var(--wine);
+    font-size:14px;letter-spacing:.1em;background:var(--wine);color:#fff;
+    transition:all .35s var(--ease);
+  }
+  .btn:hover{background:transparent;color:var(--wine);}
+  .btn.ghost{background:transparent;color:var(--wine);}
+  .btn.ghost:hover{background:var(--wine);color:#fff;}
+  .btn.small{padding:10px 20px;font-size:12.5px;}
+  .btn:disabled{opacity:.45;cursor:not-allowed;}
+
+  .hero-art{
+    position:relative;aspect-ratio:4/5;border-radius:2px;
+    background:radial-gradient(circle at 30% 20%, var(--blush) 0%, var(--ivory-2) 55%, var(--ivory) 100%);
+    display:flex;align-items:center;justify-content:center;overflow:hidden;
+  }
+  .hero-art::before{
+    content:'';position:absolute;width:340px;height:340px;border:1px solid var(--gold-light);
+    border-radius:50%;top:50%;left:50%;transform:translate(-50%,-50%);
+  }
+  .hero-art::after{
+    content:'';position:absolute;width:260px;height:260px;border:1px solid rgba(184,147,95,0.35);
+    border-radius:50%;top:50%;left:50%;transform:translate(-50%,-50%);
+  }
+  .hero-art svg{position:relative;z-index:2;width:56%;}
+
+  /* ---------- Section headings ---------- */
+  .section-head{text-align:center;max-width:560px;margin:0 auto 50px;}
+  .section-head h2{font-size:clamp(30px,3.6vw,42px);margin:14px 0 16px;}
+  .section-head p{color:var(--charcoal-soft);font-size:15px;}
+
+  section.pad{padding:90px 0;}
+  .bg-blush{background:linear-gradient(180deg,var(--blush) 0%, var(--blush-2) 100%);}
+
+  /* ---------- Product grid ---------- */
+  .grid{
+    display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));
+    gap:34px 26px;
+  }
+  .card{
+    position:relative;background:var(--white);border:1px solid rgba(184,147,95,0.14);
+    transition:transform .4s var(--ease), box-shadow .4s var(--ease);
+  }
+  .card:hover{transform:translateY(-6px);box-shadow:var(--shadow);}
+  .card-media{
+    position:relative;aspect-ratio:3/4;overflow:hidden;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .card-media svg{width:52%;transition:transform .5s var(--ease);}
+  .card:hover .card-media svg{transform:scale(1.06) translateY(-2px);}
+  .corner{position:absolute;width:18px;height:18px;border:0 solid var(--gold);opacity:0;transition:opacity .4s var(--ease);}
+  .corner.tl{top:10px;left:10px;border-top-width:1px;border-left-width:1px;}
+  .corner.br{bottom:10px;right:10px;border-bottom-width:1px;border-right-width:1px;}
+  .card:hover .corner{opacity:1;}
+  .card-body{padding:20px 20px 22px;}
+  .card-cat{font-size:11px;letter-spacing:.18em;color:var(--gold);text-transform:uppercase;}
+  .card-name{font-family:'Noto Serif TC',serif;font-size:17px;margin:8px 0 6px;font-weight:500;}
+  .card-desc{font-size:12.5px;color:var(--charcoal-soft);margin-bottom:14px;min-height:32px;}
+  .card-foot{display:flex;align-items:center;justify-content:space-between;}
+  .price{font-family:'Cormorant Garamond',serif;font-size:19px;color:var(--wine);}
+  .add-btn{
+    border:1px solid var(--charcoal);background:none;color:var(--charcoal);
+    padding:8px 16px;font-size:12px;letter-spacing:.06em;transition:all .3s var(--ease);
+  }
+  .add-btn:hover{background:var(--charcoal);color:#fff;}
+  .add-btn.added{background:var(--rose-dark);border-color:var(--rose-dark);color:#fff;}
+
+  /* ---------- Story section ---------- */
+  .story{display:grid;grid-template-columns:0.9fr 1.1fr;gap:60px;align-items:center;}
+  .seal{
+    width:92px;height:92px;border-radius:50%;border:1px solid var(--gold);
+    display:flex;align-items:center;justify-content:center;margin-bottom:26px;
+    font-family:'Cormorant Garamond',serif;font-size:26px;color:var(--wine);letter-spacing:.05em;
+  }
+  .story h2{font-size:clamp(28px,3.4vw,38px);margin-bottom:18px;}
+  .story p{color:var(--charcoal-soft);font-size:15px;margin-bottom:16px;max-width:480px;}
+  .story-art{aspect-ratio:1/1.1;background:linear-gradient(160deg,var(--ivory-2),var(--blush));display:flex;align-items:center;justify-content:center;}
+  .story-art svg{width:48%;}
+
+  /* ---------- Footer ---------- */
+  footer{background:var(--charcoal);color:#EDE6E1;padding:70px 0 30px;}
+  .footer-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr 1.2fr;gap:40px;padding-bottom:50px;border-bottom:1px solid rgba(255,255,255,0.1);}
+  footer .logo{color:#fff;}
+  footer .logo .mark{border-color:var(--gold-light);color:var(--gold-light);}
+  footer p{color:#B9B0AC;font-size:13.5px;}
+  footer h4{font-size:13px;letter-spacing:.12em;color:var(--gold-light);margin-bottom:18px;text-transform:uppercase;font-family:'Noto Sans TC';font-weight:500;}
+  footer ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:11px;}
+  footer ul a{font-size:13.5px;color:#D8D2CE;transition:color .3s;}
+  footer ul a:hover{color:var(--gold-light);}
+  .newsletter{display:flex;border-bottom:1px solid #6b625d;padding-bottom:8px;margin-top:14px;}
+  .newsletter input{background:none;border:none;color:#fff;font-size:13px;flex:1;padding:6px 0;outline:none;}
+  .newsletter button{background:none;border:none;color:var(--gold-light);font-size:13px;letter-spacing:.06em;}
+  .bottom-bar{padding-top:26px;display:flex;justify-content:space-between;font-size:12px;color:#9C938E;flex-wrap:wrap;gap:10px;}
+
+  /* ---------- Cart Drawer ---------- */
+  .overlay{
+    position:fixed;inset:0;background:rgba(43,37,35,0.42);
+    opacity:0;pointer-events:none;transition:opacity .4s var(--ease);z-index:80;
+  }
+  .overlay.show{opacity:1;pointer-events:auto;}
+  .drawer{
+    position:fixed;top:0;right:0;height:100%;width:420px;max-width:92vw;
+    background:var(--ivory);z-index:90;box-shadow:-20px 0 50px rgba(0,0,0,0.15);
+    display:flex;flex-direction:column;
+    transform:translateX(100%);transition:transform .45s var(--ease);
+  }
+  .drawer.show{transform:translateX(0);}
+  .drawer-head{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:24px 26px;border-bottom:1px solid rgba(184,147,95,0.2);
+  }
+  .drawer-head h3{font-size:21px;}
+  .close-btn{background:none;border:none;font-size:22px;color:var(--charcoal-soft);line-height:1;}
+  .drawer-body{flex:1;overflow-y:auto;padding:10px 26px;}
+  .cart-item{display:flex;gap:14px;padding:18px 0;border-bottom:1px solid rgba(184,147,95,0.14);}
+  .cart-thumb{
+    width:64px;height:78px;flex-shrink:0;border-radius:2px;
+    background:linear-gradient(160deg,var(--blush),var(--ivory-2));
+    display:flex;align-items:center;justify-content:center;
+  }
+  .cart-thumb svg{width:60%;}
+  .cart-info{flex:1;}
+  .cart-info-top{display:flex;justify-content:space-between;gap:8px;}
+  .cart-info-top .name{font-family:'Noto Serif TC';font-size:14.5px;}
+  .remove-x{background:none;border:none;color:#B7ADA8;font-size:13px;}
+  .remove-x:hover{color:var(--wine);}
+  .cart-price{color:var(--wine);font-family:'Cormorant Garamond';font-size:16px;margin-top:2px;}
+  .qty-row{display:flex;align-items:center;gap:10px;margin-top:10px;}
+  .qty-btn{width:24px;height:24px;border:1px solid var(--charcoal-soft);background:none;font-size:14px;display:flex;align-items:center;justify-content:center;color:var(--charcoal);}
+  .qty-val{font-size:13.5px;min-width:16px;text-align:center;}
+  .empty-cart{text-align:center;padding:80px 20px;color:var(--charcoal-soft);}
+  .empty-cart svg{width:70px;margin:0 auto 18px;opacity:.5;}
+  .drawer-foot{padding:22px 26px 26px;border-top:1px solid rgba(184,147,95,0.2);}
+  .subtotal-row{display:flex;justify-content:space-between;font-size:15px;margin-bottom:16px;}
+  .subtotal-row .val{font-family:'Cormorant Garamond';font-size:22px;color:var(--wine);}
+  .drawer-foot .btn{width:100%;justify-content:center;}
+  .ship-note{font-size:11.5px;color:var(--charcoal-soft);text-align:center;margin-top:12px;}
+
+  /* ---------- Checkout Modal ---------- */
+  .modal-overlay{
+    position:fixed;inset:0;background:rgba(43,37,35,0.5);z-index:100;
+    display:flex;align-items:center;justify-content:center;padding:24px;
+    opacity:0;pointer-events:none;transition:opacity .35s var(--ease);
+  }
+  .modal-overlay.show{opacity:1;pointer-events:auto;}
+  .modal{
+    background:var(--ivory);width:100%;max-width:620px;max-height:88vh;overflow-y:auto;
+    box-shadow:0 30px 80px rgba(0,0,0,0.25);
+    transform:translateY(16px);transition:transform .4s var(--ease);
+  }
+  .modal-overlay.show .modal{transform:translateY(0);}
+  .modal-head{padding:26px 32px 0;display:flex;justify-content:space-between;align-items:flex-start;}
+  .modal-head h3{font-size:24px;}
+  .steps{display:flex;gap:0;padding:20px 32px 0;}
+  .step{flex:1;text-align:center;font-size:11.5px;letter-spacing:.08em;color:#B7ADA8;position:relative;padding-bottom:14px;text-transform:uppercase;}
+  .step::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:#E5DCD6;}
+  .step.active{color:var(--wine);}
+  .step.active::after{background:var(--wine);}
+  .step.done{color:var(--gold);}
+  .step.done::after{background:var(--gold);}
+  .modal-body{padding:28px 32px;}
+  .field{margin-bottom:18px;}
+  .field label{display:block;font-size:12.5px;color:var(--charcoal-soft);margin-bottom:7px;letter-spacing:.03em;}
+  .field input,.field textarea{
+    width:100%;border:1px solid #DED2CA;background:#fff;padding:12px 14px;font-size:14px;
+    font-family:inherit;outline:none;transition:border-color .3s;color:var(--charcoal);
+  }
+  .field input:focus,.field textarea:focus{border-color:var(--rose);}
+  .field-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .err{color:#A23B3B;font-size:11.5px;margin-top:5px;display:none;}
+  .field.error input{border-color:#A23B3B;}
+  .field.error .err{display:block;}
+
+  .pay-option{
+    border:1px solid #DED2CA;padding:16px 18px;margin-bottom:12px;cursor:pointer;
+    display:flex;align-items:center;gap:14px;transition:border-color .3s,background .3s;
+  }
+  .pay-option:hover{border-color:var(--rose);}
+  .pay-option.selected{border-color:var(--wine);background:#FBF3F1;}
+  .pay-option input{accent-color:var(--wine);width:16px;height:16px;}
+  .pay-option .pay-label{font-size:14.5px;font-weight:500;}
+  .pay-option .pay-sub{font-size:12px;color:var(--charcoal-soft);margin-top:2px;}
+  .card-fields{margin-top:16px;padding-top:16px;border-top:1px dashed #DED2CA;}
+
+  .summary-box{background:#fff;border:1px solid rgba(184,147,95,0.2);padding:18px 20px;margin-bottom:20px;}
+  .summary-line{display:flex;justify-content:space-between;font-size:13.5px;padding:6px 0;color:var(--charcoal-soft);}
+  .summary-line.total{border-top:1px solid rgba(184,147,95,0.25);margin-top:8px;padding-top:12px;font-size:16px;color:var(--wine);font-family:'Cormorant Garamond';}
+  .summary-line.total span:last-child{font-size:22px;}
+  .mini-item{display:flex;justify-content:space-between;font-size:12.5px;color:var(--charcoal-soft);padding:4px 0;}
+
+  .modal-nav{display:flex;justify-content:space-between;padding:0 32px 30px;gap:12px;}
+  .btn.text{border:none;background:none;color:var(--charcoal-soft);padding:12px 6px;}
+  .btn.text:hover{color:var(--wine);}
+
+  .processing{text-align:center;padding:60px 20px;}
+  .spinner{width:44px;height:44px;border:2px solid #E5DCD6;border-top-color:var(--wine);border-radius:50%;margin:0 auto 22px;animation:spin 1s linear infinite;}
+  @keyframes spin{to{transform:rotate(360deg);}}
+  .success{text-align:center;padding:40px 10px 10px;}
+  .success .seal{margin:0 auto 22px;width:70px;height:70px;font-size:28px;border-color:var(--gold);}
+  .success h3{font-size:26px;margin-bottom:10px;}
+  .success .order-no{color:var(--wine);font-family:'Cormorant Garamond';font-size:20px;letter-spacing:.04em;margin-bottom:20px;}
+  .success p{color:var(--charcoal-soft);font-size:14px;max-width:380px;margin:0 auto 26px;}
+
+  .toast{
+    position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(20px);
+    background:var(--charcoal);color:#fff;padding:13px 26px;font-size:13.5px;
+    letter-spacing:.03em;z-index:120;opacity:0;pointer-events:none;transition:all .35s var(--ease);
+  }
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+
+  @media (max-width: 860px){
+    .hero{grid-template-columns:1fr;padding-top:44px;}
+    .hero-art{order:-1;aspect-ratio:4/3;}
+    .story{grid-template-columns:1fr;}
+    .story-art{order:-1;}
+    .nav-links{display:none;}
+    .footer-grid{grid-template-columns:1fr 1fr;}
+    .field-row{grid-template-columns:1fr;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{transition-duration:0.001ms !important; animation-duration:0.001ms !important;}
+    html{scroll-behavior:auto;}
+  }
+
+  /* ---------- Admin View ---------- */
+  .input{
+    border:1px solid #DED2CA;background:#fff;padding:11px 13px;font-size:14px;
+    font-family:inherit;outline:none;transition:border-color .3s;color:var(--charcoal);
+  }
+  .input:focus{border-color:var(--rose);}
+  .admin-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-bottom:26px;}
+  .stat-card{background:#fff;border:1px solid rgba(184,147,95,0.2);padding:16px 18px;display:flex;align-items:center;gap:14px;}
+  .stat-icon{width:38px;height:38px;border-radius:50%;background:var(--blush);display:flex;align-items:center;justify-content:center;font-size:16px;}
+  .stat-icon.warn{background:#FBEDED;}
+  .stat-label{font-size:11px;color:var(--charcoal-soft);letter-spacing:.03em;}
+  .stat-value{font-family:'Cormorant Garamond',serif;font-size:20px;margin-top:2px;}
+  .admin-toolbar{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:24px;}
+  .admin-grid{grid-template-columns:repeat(auto-fill,minmax(240px,1fr));}
+  .admin-card{background:#fff;border:1px solid rgba(184,147,95,0.14);}
+  .admin-card .card-media{aspect-ratio:4/3;}
+  .admin-card .card-media svg{width:34%;}
+  .status-pill{font-size:10.5px;padding:4px 10px;border-radius:999px;font-weight:500;letter-spacing:.02em;position:absolute;top:10px;left:10px;}
+  .status-pill.live{background:#EAF4EC;color:#3A7A4C;}
+  .status-pill.off{background:#F3EAEA;color:#8A5555;}
+  .status-pill.out{background:#FBF0DC;color:#9C7A2E;}
+  .admin-card-body{padding:16px 18px 18px;}
+  .admin-actions{display:flex;gap:8px;margin-top:12px;}
+  .admin-actions button{flex:1;font-size:11.5px;padding:8px 6px;border:1px solid var(--charcoal);background:none;color:var(--charcoal);transition:all .25s;}
+  .admin-actions button:hover{background:var(--charcoal);color:#fff;}
+  .admin-actions button.danger{flex:0 0 auto;border-color:#DED2CA;color:#A23B3B;padding:8px 12px;}
+  .admin-actions button.danger:hover{background:#FBEDED;color:#A23B3B;}
+  .stock-low{color:#A23B3B;}
+  .sold-out-badge{
+    position:absolute;inset:0;background:rgba(255,255,255,0.7);display:flex;align-items:center;justify-content:center;
+  }
+  .sold-out-badge span{border:1px solid var(--charcoal-soft);color:var(--charcoal-soft);font-size:11px;letter-spacing:.15em;padding:5px 12px;}
+  .conn-status{text-align:center;padding:100px 20px;color:var(--charcoal-soft);}
+  .conn-status .spinner{margin:0 auto 18px;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="logo"><span class="mark">HW</span> HW shop</div>
+    <nav class="nav-links">
+      <a href="#new">新品</a>
+      <a href="#collection">系列</a>
+      <a href="#story">關於我們</a>
+      <a href="#footer">聯絡資訊</a>
+    </nav>
+    <div class="nav-right">
+      <button class="icon-btn" id="adminToggleBtn" aria-label="商家後台" title="商家後台" style="font-size:12px;display:flex;align-items:center;gap:6px;color:var(--charcoal-soft);">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1-1.6 1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.6-1 1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.9.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.9V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>
+        <span id="adminToggleLabel">商家登入</span>
+      </button>
+      <button class="icon-btn" id="cartBtn" aria-label="購物袋">
+        <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M6 8h12l-1 12.5a1.5 1.5 0 0 1-1.5 1.5h-7A1.5 1.5 0 0 1 7 20.5L6 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div id="storeView">
+<section class="hero">
+  <div>
+    <p class="eyebrow">2026 春夏系列</p>
+    <h1>在細節裡，<br>找到屬於<em>自己</em>的優雅</h1>
+    <p>HW shop 精選當代女裝，以細膩剪裁與純淨色調，詮釋日常裡的講究。每一件單品，皆是靜靜訴說品味的方式。</p>
+    <a href="#collection" class="btn">探索本季系列
+      <svg width="14" height="10" viewBox="0 0 14 10" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M1 5h11.5M8 1l4.5 4-4.5 4"/></svg>
+    </a>
+  </div>
+  <div class="hero-art">
+    <svg viewBox="0 0 200 260" fill="none" stroke="#8B4A57" stroke-width="1.2">
+      <path d="M100 20c-10 0-18 8-18 18 0 6 3 11 7 14l-30 20-14 150c-1 8 5 15 13 15h84c8 0 14-7 13-15l-14-150-30-20c4-3 7-8 7-14 0-10-8-18-18-18Z"/>
+      <path d="M89 55 L70 90 M111 55 L130 90" stroke-width="1"/>
+      <path d="M82 35c0 8 8 15 18 15s18-7 18-15" stroke-width="1"/>
+    </svg>
+  </div>
+</section>
+
+<div class="ribbon-divider wrap">
+  <span class="ribbon-line"></span>
+  <svg width="26" height="16" viewBox="0 0 26 16" fill="none" stroke="#B8935F" stroke-width="1">
+    <path d="M13 8c-3-6-11-6-11 0s8 6 11 0Zm0 0c3-6 11-6 11 0s-8 6-11 0Z"/>
+    <circle cx="13" cy="8" r="1.4" fill="#B8935F" stroke="none"/>
+  </svg>
+  <span class="ribbon-line"></span>
+</div>
+
+<section class="pad" id="collection">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Curated Collection</p>
+      <h2>本季精選</h2>
+      <p>從辦公室到晚宴，八件核心單品構築你的春夏衣櫥。</p>
+    </div>
+    <div class="grid" id="productGrid"></div>
+  </div>
+</section>
+
+<section class="pad bg-blush" id="story">
+  <div class="wrap story">
+    <div>
+      <div class="seal">HW</div>
+      <p class="eyebrow">Our Story</p>
+      <h2>剪裁之間，是我們對品質的堅持</h2>
+      <p>HW shop 成立的初衷很簡單：讓精緻的穿著成為日常，而非特例。我們與台灣在地工坊合作，堅持小批量製作，從選布到縫製都親自把關。</p>
+      <p>沒有浮誇的裝飾，只有恰到好處的剪裁與觸感——這是我們理解的「精緻」。</p>
+      <a href="#collection" class="btn ghost">認識我們的系列</a>
+    </div>
+    <div class="story-art">
+      <svg viewBox="0 0 200 240" fill="none" stroke="#8B4A57" stroke-width="1.1">
+        <path d="M60 30h80v20l-16 14v130a6 6 0 0 1-6 6H82a6 6 0 0 1-6-6V64L60 50Z"/>
+        <path d="M60 30l40 34 40-34" stroke-width="1"/>
+        <line x1="80" y1="90" x2="120" y2="90" stroke-width="0.8"/>
+        <line x1="80" y1="120" x2="120" y2="120" stroke-width="0.8"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<footer id="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="logo">HW shop</div>
+        <p style="margin-top:16px;max-width:260px;">台灣在地設計，精緻剪裁女裝選物店。願每件衣服，都成為你自信的理由。</p>
+      </div>
+      <div>
+        <h4>選購指南</h4>
+        <ul>
+          <li><a href="#collection">全部商品</a></li>
+          <li><a href="#">尺寸對照</a></li>
+          <li><a href="#">退換貨政策</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>顧客服務</h4>
+        <ul>
+          <li><a href="#">聯絡客服</a></li>
+          <li><a href="#">常見問題</a></li>
+          <li><a href="#">運送資訊</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>訂閱電子報</h4>
+        <p>搶先獲得新品與限定優惠。</p>
+        <div class="newsletter">
+          <input type="email" placeholder="輸入你的 Email">
+          <button>訂閱</button>
+        </div>
+      </div>
+    </div>
+    <div class="bottom-bar">
+      <span>© 2026 HW shop. All rights reserved.</span>
+      <span>Taipei, Taiwan</span>
+    </div>
+  </div>
+</footer>
+</div><!-- /storeView -->
+
+<div id="adminView" style="display:none">
+  <div class="wrap" style="padding-top:32px;padding-bottom:80px;">
+    <p style="font-size:11.5px;color:var(--charcoal-soft);margin-bottom:20px;">與官網共用同一份商品資料，異動將即時反映在前台。</p>
+
+    <div class="admin-stats">
+      <div class="stat-card">
+        <div class="stat-icon">📦</div>
+        <div><div class="stat-label">商品總數</div><div class="stat-value" id="statCount">0 件</div></div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">💰</div>
+        <div><div class="stat-label">庫存總價值</div><div class="stat-value" id="statValue">NT$ 0</div></div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon warn">⚠️</div>
+        <div><div class="stat-label">低庫存提醒（≤5）</div><div class="stat-value" id="statLow">0 項</div></div>
+      </div>
+    </div>
+
+    <div class="admin-toolbar">
+      <input id="adminSearch" class="input" placeholder="搜尋商品名稱或 SKU" style="flex:1;min-width:220px;">
+      <select id="adminCategoryFilter" class="input" style="width:auto;">
+        <option>全部</option>
+        <option>洋裝</option><option>上衣</option><option>外套</option><option>裙裝</option><option>配件</option><option>鞋款</option>
+      </select>
+      <button class="btn small ghost" id="adminRefreshBtn">同步資料</button>
+      <button class="btn small" id="adminAddBtn">＋ 新增商品</button>
+    </div>
+
+    <div id="adminGrid" class="grid admin-grid"></div>
+  </div>
+</div><!-- /adminView -->
+
+<!-- 商家登入密碼視窗 -->
+<div class="modal-overlay" id="passcodeOverlay">
+  <div class="modal" style="max-width:380px;">
+    <div class="modal-head"><h3 style="font-size:20px;">商家後台登入</h3><button class="close-btn" id="passcodeClose">&times;</button></div>
+    <div class="modal-body">
+      <p style="font-size:12.5px;color:var(--charcoal-soft);margin-bottom:16px;">請輸入商家密碼以進入後台管理</p>
+      <div class="field" id="f_passcode">
+        <input type="password" id="in_passcode" placeholder="請輸入密碼">
+        <div class="err" style="display:block;" id="passcodeErr"></div>
+      </div>
+      <p style="font-size:11px;color:#B7ADA8;">若伺服器剛喚醒，登入可能需要多等幾秒</p>
+    </div>
+    <div class="modal-nav" style="padding-top:0;">
+      <button class="btn text" id="passcodeCancel">取消</button>
+      <button class="btn" id="passcodeSubmit">登入</button>
+    </div>
+  </div>
+</div>
+
+<!-- 商品新增/編輯視窗 -->
+<div class="modal-overlay" id="productOverlay">
+  <div class="modal">
+    <div class="modal-head"><h3 id="productModalTitle">新增商品</h3><button class="close-btn" id="productModalClose">&times;</button></div>
+    <div class="modal-body">
+      <div class="field" id="f_p_name"><label>商品名稱</label><input id="in_p_name" placeholder="例如：薄霧珊紗洋裝"><div class="err">請輸入商品名稱</div></div>
+      <div class="field-row">
+        <div class="field"><label>分類</label>
+          <select id="in_p_category">
+            <option>洋裝</option><option>上衣</option><option>外套</option><option>裙裝</option><option>配件</option><option>鞋款</option>
+          </select>
+        </div>
+        <div class="field"><label>SKU（選填）</label><input id="in_p_sku" placeholder="HW-DR-001"></div>
+      </div>
+      <div class="field-row">
+        <div class="field" id="f_p_price"><label>售價 (NT$)</label><input id="in_p_price" placeholder="2980" inputmode="numeric"><div class="err">請輸入有效價格</div></div>
+        <div class="field" id="f_p_stock"><label>庫存數量</label><input id="in_p_stock" placeholder="20" inputmode="numeric"><div class="err">請輸入有效庫存數量</div></div>
+      </div>
+      <div class="field"><label>商品圖片網址（選填）</label><input id="in_p_image" placeholder="https://..."></div>
+      <div class="field"><label>商品描述</label><textarea id="in_p_desc" style="min-height:80px;resize:none;" placeholder="材質、剪裁、特色說明..."></textarea></div>
+    </div>
+    <div class="modal-nav">
+      <button class="btn text" id="productModalCancel">取消</button>
+      <button class="btn" id="productModalSave">確認上架</button>
+    </div>
+  </div>
+</div>
+
+<!-- 刪除確認視窗 -->
+<div class="modal-overlay" id="deleteOverlay">
+  <div class="modal" style="max-width:380px;">
+    <div class="modal-body" style="padding-top:28px;">
+      <h4 style="font-family:'Noto Serif TC',serif;font-size:18px;margin-bottom:10px;">確定要刪除這項商品嗎？</h4>
+      <p style="font-size:13.5px;color:var(--charcoal-soft);margin-bottom:22px;" id="deleteMsg"></p>
+    </div>
+    <div class="modal-nav" style="padding-top:0;">
+      <button class="btn text" id="deleteCancel">取消</button>
+      <button class="btn" id="deleteConfirm" style="background:#A23B3B;border-color:#A23B3B;">確認刪除</button>
+    </div>
+  </div>
+</div>
+
+<!-- Cart Drawer -->
+<div class="overlay" id="overlay"></div>
+<aside class="drawer" id="cartDrawer" aria-label="購物袋">
+  <div class="drawer-head">
+    <h3>購物袋</h3>
+    <button class="close-btn" id="closeCart" aria-label="關閉">&times;</button>
+  </div>
+  <div class="drawer-body" id="cartBody"></div>
+  <div class="drawer-foot" id="cartFoot"></div>
+</aside>
+
+<!-- Checkout Modal -->
+<div class="modal-overlay" id="checkoutOverlay">
+  <div class="modal" id="checkoutModal"></div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+(function(){
+  /* ============ 共用設定 ============ */
+  const API_BASE = 'https://hwshop-api.onrender.com'; // 你部署在 Render 上的後端網址
+  let products = [];
+  let cart = {}; // id -> qty
+  let adminToken = null;
+  let mode = 'store'; // store | admin
+
+  const fmt = n => 'NT$ ' + Number(n||0).toLocaleString('en-US');
+
+  async function apiFetch(path, options={}){
+    const res = await fetch(API_BASE + path, {
+      ...options,
+      headers: { 'Content-Type': 'application/json', ...(options.headers||{}) }
+    });
+    let data = null;
+    try { data = await res.json(); } catch(e) {}
+    if(!res.ok) throw new Error((data && data.error) || ('伺服器錯誤 (' + res.status + ')'));
+    return data;
+  }
+
+  const icons = {
+    洋裝: '<path d="M50 8c-6 0-10 5-10 10 0 4 2 7 5 9l-16 12-8 65c-1 5 3 9 8 9h42c5 0 9-4 8-9l-8-65-16-12c3-2 5-5 5-9 0-5-4-10-10-10Z"/><path d="M42 30 L28 50 M58 30 L72 50" stroke-width="0.9"/>',
+    上衣: '<path d="M30 20 L20 32 L28 42 L34 34 V88 H66 V34 L72 42 L80 32 L70 20 C 66 26 34 26 30 20 Z"/>',
+    外套: '<path d="M28 18h44v12l-9 8v70a4 4 0 0 1-4 4H41a4 4 0 0 1-4-4V38l-9-8Z"/><path d="M28 18l22 20 22-20" stroke-width="0.9"/><line x1="42" y1="55" x2="58" y2="55" stroke-width="0.7"/><line x1="42" y1="75" x2="58" y2="75" stroke-width="0.7"/>',
+    裙裝: '<path d="M36 16h28l6 20 14 62H16l14-62Z"/><line x1="40" y1="30" x2="60" y2="30" stroke-width="0.8"/>',
+    配件: '<path d="M14 40c10-14 30-18 40-8s6 26-6 24-8-18-20-16-16 10-14 0Z"/><path d="M50 32c14-6 30 2 32 16s-14 22-20 12" stroke-width="0.9"/>',
+    鞋款: '<path d="M14 72h58c8 0 15-6 15-13 0-4-2-8-6-10l-28-14c-3-2-7-2-10 0l-9 7c-3 2-4 5-4 9v5H16c-4 0-7 3-7 8 0 4 2 8 5 8Z"/>'
+  };
+  const toneBg = {0:'linear-gradient(160deg,var(--blush) 0%, var(--ivory-2) 100%)',1:'linear-gradient(160deg,var(--ivory-2) 0%, var(--blush-2) 100%)'};
+
+  function svgFor(cat, size){
+    return `<svg viewBox="0 0 100 100" fill="none" stroke="#8B4A57" stroke-width="1.1" style="${size||'width:52%'}">${icons[cat]||icons['洋裝']}</svg>`;
+  }
+
+  /* ============ 載入商品(串接後端) ============ */
+  const storeViewEl = document.getElementById('storeView');
+  const adminViewEl = document.getElementById('adminView');
+  const grid = document.getElementById('productGrid');
+
+  async function loadProducts(){
+    grid.innerHTML = `<div class="conn-status" style="grid-column:1/-1;"><div class="spinner"></div><p>連線後端伺服器中…若剛從休眠喚醒，可能需要 20–30 秒</p></div>`;
+    try {
+      products = await apiFetch('/api/products');
+      renderProducts();
+      renderCart();
+      if(mode === 'admin') renderAdmin();
+    } catch(e){
+      grid.innerHTML = `<div class="conn-status" style="grid-column:1/-1;">
+        <p style="margin-bottom:14px;">無法連線到後端伺服器，請稍候片刻後再試一次。</p>
+        <button class="btn small" id="retryLoad">重新連線</button>
+      </div>`;
+      document.getElementById('retryLoad').addEventListener('click', loadProducts);
+    }
+  }
+
+  /* ============ 官網商品渲染 ============ */
+  function renderProducts(){
+    const visible = products.filter(p => p.status !== '已下架');
+    if(visible.length === 0){
+      grid.innerHTML = `<div class="conn-status" style="grid-column:1/-1;"><p>目前尚無上架商品，敬請期待。</p></div>`;
+      return;
+    }
+    grid.innerHTML = visible.map((p,i) => {
+      const soldOut = p.stock <= 0;
+      return `
+      <div class="card" data-id="${p.id}">
+        <div class="card-media" style="background:${toneBg[i%2]}">
+          <span class="corner tl"></span><span class="corner br"></span>
+          ${p.image ? `<img src="${p.image}" alt="${p.name}" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'">` : svgFor(p.category)}
+          ${soldOut ? `<div class="sold-out-badge"><span>已售完</span></div>` : ''}
+        </div>
+        <div class="card-body">
+          <div class="card-cat">${p.category}</div>
+          <div class="card-name">${p.name}</div>
+          <div class="card-desc">${p.description||''}</div>
+          <div class="card-foot">
+            <span class="price">${fmt(p.price)}</span>
+            <button class="add-btn" data-add="${p.id}" ${soldOut?'disabled':''}>${cart[p.id] ? `已加入 (${cart[p.id]})` : '加入購物袋'}</button>
+          </div>
+        </div>
+      </div>`;
+    }).join('');
+  }
+
+  grid.addEventListener('click', e => {
+    const btn = e.target.closest('[data-add]');
+    if(!btn || btn.disabled) return;
+    const id = Number(btn.dataset.add);
+    const p = products.find(x=>x.id===id);
+    if(!p) return;
+    if((cart[id]||0) >= p.stock){ showToast('庫存不足'); return; }
+    cart[id] = (cart[id]||0) + 1;
+    renderCart();
+    renderProducts();
+    showToast('已加入購物袋');
+  });
+
+  /* ============ 購物車 ============ */
+  const overlay = document.getElementById('overlay');
+  const drawer = document.getElementById('cartDrawer');
+  const cartBody = document.getElementById('cartBody');
+  const cartFoot = document.getElementById('cartFoot');
+  const cartCount = document.getElementById('cartCount');
+
+  function cartItems(){
+    return Object.entries(cart).filter(([,q])=>q>0).map(([id,qty])=>({...products.find(p=>p.id==id), qty})).filter(i=>i.id);
+  }
+  function subtotal(){ return cartItems().reduce((s,i)=>s+i.price*i.qty,0); }
+
+  function renderCart(){
+    const items = cartItems();
+    cartCount.textContent = items.reduce((s,i)=>s+i.qty,0);
+
+    if(items.length === 0){
+      cartBody.innerHTML = `
+        <div class="empty-cart">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M6 8h12l-1 12.5a1.5 1.5 0 0 1-1.5 1.5h-7A1.5 1.5 0 0 1 7 20.5L6 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+          <p>購物袋是空的</p>
+        </div>`;
+      cartFoot.innerHTML = `<a href="#collection" class="btn" style="width:100%;justify-content:center;" id="continueShopping">繼續選購</a>`;
+      document.getElementById('continueShopping')?.addEventListener('click', closeCart);
+      return;
+    }
+
+    cartBody.innerHTML = items.map(it => `
+      <div class="cart-item" data-id="${it.id}">
+        <div class="cart-thumb">${it.image ? `<img src="${it.image}" style="width:100%;height:100%;object-fit:cover;">` : svgFor(it.category,'width:60%')}</div>
+        <div class="cart-info">
+          <div class="cart-info-top">
+            <span class="name">${it.name}</span>
+            <button class="remove-x" data-remove="${it.id}">移除</button>
+          </div>
+          <div class="cart-price">${fmt(it.price)}</div>
+          <div class="qty-row">
+            <button class="qty-btn" data-dec="${it.id}">−</button>
+            <span class="qty-val">${it.qty}</span>
+            <button class="qty-btn" data-inc="${it.id}">+</button>
+          </div>
+        </div>
+      </div>
+    `).join('');
+
+    cartFoot.innerHTML = `
+      <div class="subtotal-row"><span>小計</span><span class="val">${fmt(subtotal())}</span></div>
+      <button class="btn" id="toCheckout" style="width:100%;justify-content:center;">前往結帳</button>
+      <p class="ship-note">滿 NT$ 2,500 免運費・7 天鑑賞期</p>
+    `;
+    document.getElementById('toCheckout').addEventListener('click', ()=>{ closeCart(); openCheckout(); });
+  }
+
+  cartBody?.addEventListener('click', e=>{
+    const inc = e.target.closest('[data-inc]');
+    const dec = e.target.closest('[data-dec]');
+    const rem = e.target.closest('[data-remove]');
+    if(inc){
+      const p = products.find(x=>x.id==inc.dataset.inc);
+      if(p && cart[inc.dataset.inc] >= p.stock){ showToast('庫存不足'); return; }
+      cart[inc.dataset.inc]++; renderCart(); renderProducts();
+    }
+    if(dec){ const id=dec.dataset.dec; cart[id] = Math.max(0, cart[id]-1); renderCart(); renderProducts(); }
+    if(rem){ cart[rem.dataset.remove] = 0; renderCart(); renderProducts(); showToast('已從購物袋移除'); }
+  });
+
+  function openCart(){ overlay.classList.add('show'); drawer.classList.add('show'); }
+  function closeCart(){ overlay.classList.remove('show'); drawer.classList.remove('show'); }
+  document.getElementById('cartBtn').addEventListener('click', openCart);
+  document.getElementById('closeCart').addEventListener('click', closeCart);
+  overlay.addEventListener('click', ()=>{ closeCart(); closeCheckout(); });
+
+  /* ============ Toast ============ */
+  const toastEl = document.getElementById('toast');
+  let toastTimer;
+  function showToast(msg){
+    toastEl.textContent = msg;
+    toastEl.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(()=>toastEl.classList.remove('show'), 2400);
+  }
+
+  /* ============ 結帳流程 ============ */
+  const checkoutOverlay = document.getElementById('checkoutOverlay');
+  const checkoutModal = document.getElementById('checkoutModal');
+  let step = 1;
+  let payMethod = 'card';
+  let orderInfo = {name:'',phone:'',address:'',email:''};
+  let cardInfo = {number:'',expiry:'',cvv:'',name:''};
+
+  function openCheckout(){
+    if(cartItems().length===0){ showToast('購物袋是空的'); return; }
+    step = 1;
+    checkoutOverlay.classList.add('show');
+    renderCheckout();
+  }
+  function closeCheckout(){ checkoutOverlay.classList.remove('show'); }
+
+  function stepsBar(){
+    const labels = ['收件資訊','付款方式','確認訂單'];
+    return `<div class="steps">${labels.map((l,i)=>{
+      const n=i+1;
+      const cls = step===n ? 'active' : (step>n ? 'done':'');
+      return `<div class="step ${cls}">${n}. ${l}</div>`;
+    }).join('')}</div>`;
+  }
+
+  function renderCheckout(){
+    if(step===1) return renderStepInfo();
+    if(step===2) return renderStepPayment();
+    if(step===3) return renderStepReview();
+  }
+
+  function renderStepInfo(){
+    checkoutModal.innerHTML = `
+      <div class="modal-head"><h3>結帳</h3><button class="close-btn" id="modalClose">&times;</button></div>
+      ${stepsBar()}
+      <div class="modal-body">
+        <div class="field" id="f_name"><label>收件人姓名</label><input id="in_name" value="${orderInfo.name}" placeholder="請輸入姓名"><div class="err">請輸入姓名</div></div>
+        <div class="field-row">
+          <div class="field" id="f_phone"><label>聯絡電話</label><input id="in_phone" value="${orderInfo.phone}" placeholder="09xx-xxx-xxx"><div class="err">請輸入有效電話</div></div>
+          <div class="field" id="f_email"><label>Email</label><input id="in_email" value="${orderInfo.email}" placeholder="you@example.com"><div class="err">請輸入有效 Email</div></div>
+        </div>
+        <div class="field" id="f_addr"><label>收件地址</label><input id="in_addr" value="${orderInfo.address}" placeholder="請輸入完整地址"><div class="err">請輸入地址</div></div>
+      </div>
+      <div class="modal-nav">
+        <button class="btn text" id="modalCancel">取消</button>
+        <button class="btn" id="nextStep">下一步</button>
+      </div>
+    `;
+    bindCommon();
+    document.getElementById('nextStep').addEventListener('click', ()=>{
+      orderInfo.name = document.getElementById('in_name').value.trim();
+      orderInfo.phone = document.getElementById('in_phone').value.trim();
+      orderInfo.email = document.getElementById('in_email').value.trim();
+      orderInfo.address = document.getElementById('in_addr').value.trim();
+
+      let ok = true;
+      toggleErr('f_name', !orderInfo.name); if(!orderInfo.name) ok=false;
+      const phoneOk = /^[0-9\-+ ]{8,15}$/.test(orderInfo.phone);
+      toggleErr('f_phone', !phoneOk); if(!phoneOk) ok=false;
+      const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(orderInfo.email);
+      toggleErr('f_email', !emailOk); if(!emailOk) ok=false;
+      toggleErr('f_addr', !orderInfo.address); if(!orderInfo.address) ok=false;
+
+      if(ok){ step=2; renderCheckout(); }
+    });
+  }
+
+  function toggleErr(id, isErr){
+    document.getElementById(id).classList.toggle('error', isErr);
+  }
+
+  function renderStepPayment(){
+    checkoutModal.innerHTML = `
+      <div class="modal-head"><h3>結帳</h3><button class="close-btn" id="modalClose">&times;</button></div>
+      ${stepsBar()}
+      <div class="modal-body">
+        <div class="pay-option ${payMethod==='card'?'selected':''}" data-pay="card">
+          <input type="radio" name="pay" ${payMethod==='card'?'checked':''}>
+          <div><div class="pay-label">信用卡付款</div><div class="pay-sub">支援 Visa / MasterCard / JCB</div></div>
+        </div>
+        <div class="pay-option ${payMethod==='linepay'?'selected':''}" data-pay="linepay">
+          <input type="radio" name="pay" ${payMethod==='linepay'?'checked':''}>
+          <div><div class="pay-label">LINE Pay</div><div class="pay-sub">送出訂單後導向 LINE Pay 完成付款</div></div>
+        </div>
+        <div class="pay-option ${payMethod==='atm'?'selected':''}" data-pay="atm">
+          <input type="radio" name="pay" ${payMethod==='atm'?'checked':''}>
+          <div><div class="pay-label">ATM 轉帳</div><div class="pay-sub">系統將產生專屬虛擬帳號，3 日內轉帳</div></div>
+        </div>
+        <div class="pay-option ${payMethod==='cod'?'selected':''}" data-pay="cod">
+          <input type="radio" name="pay" ${payMethod==='cod'?'checked':''}>
+          <div><div class="pay-label">貨到付款</div><div class="pay-sub">另收 NT$ 30 手續費</div></div>
+        </div>
+        <div id="cardFieldsWrap"></div>
+      </div>
+      <div class="modal-nav">
+        <button class="btn text" id="backStep">上一步</button>
+        <button class="btn" id="nextStep2">下一步</button>
+      </div>
+    `;
+    bindCommon();
+    renderCardFields();
+
+    checkoutModal.querySelectorAll('[data-pay]').forEach(el=>{
+      el.addEventListener('click', ()=>{
+        payMethod = el.dataset.pay;
+        checkoutModal.querySelectorAll('.pay-option').forEach(o=>{
+          o.classList.toggle('selected', o.dataset.pay===payMethod);
+          o.querySelector('input').checked = o.dataset.pay===payMethod;
+        });
+        renderCardFields();
+      });
+    });
+
+    document.getElementById('backStep').addEventListener('click', ()=>{ step=1; renderCheckout(); });
+    document.getElementById('nextStep2').addEventListener('click', ()=>{
+      if(payMethod==='card'){
+        cardInfo.number = document.getElementById('in_cardnum')?.value.replace(/\s/g,'') || '';
+        cardInfo.expiry = document.getElementById('in_expiry')?.value || '';
+        cardInfo.cvv = document.getElementById('in_cvv')?.value || '';
+        cardInfo.name = document.getElementById('in_cardname')?.value || '';
+
+        let ok = true;
+        const numOk = /^\d{16}$/.test(cardInfo.number);
+        toggleErr('f_cardnum', !numOk); if(!numOk) ok=false;
+        const expOk = /^\d{2}\/\d{2}$/.test(cardInfo.expiry);
+        toggleErr('f_expiry', !expOk); if(!expOk) ok=false;
+        const cvvOk = /^\d{3}$/.test(cardInfo.cvv);
+        toggleErr('f_cvv', !cvvOk); if(!cvvOk) ok=false;
+        toggleErr('f_cardname', !cardInfo.name.trim()); if(!cardInfo.name.trim()) ok=false;
+        if(!ok) return;
+      }
+      step=3; renderCheckout();
+    });
+  }
+
+  function renderCardFields(){
+    const wrap = document.getElementById('cardFieldsWrap');
+    if(payMethod !== 'card'){ wrap.innerHTML=''; return; }
+    wrap.innerHTML = `
+      <div class="card-fields">
+        <div class="field" id="f_cardnum">
+          <label>卡號</label>
+          <input id="in_cardnum" placeholder="1234 5678 9012 3456" value="${cardInfo.number}" maxlength="19">
+          <div class="err">請輸入 16 碼卡號</div>
+        </div>
+        <div class="field-row">
+          <div class="field" id="f_expiry"><label>有效期限 (MM/YY)</label><input id="in_expiry" placeholder="08/28" value="${cardInfo.expiry}" maxlength="5"><div class="err">格式錯誤</div></div>
+          <div class="field" id="f_cvv"><label>安全碼 CVV</label><input id="in_cvv" placeholder="123" value="${cardInfo.cvv}" maxlength="3"><div class="err">請輸入 3 碼</div></div>
+        </div>
+        <div class="field" id="f_cardname"><label>持卡人姓名</label><input id="in_cardname" placeholder="與信用卡上一致" value="${cardInfo.name}"><div class="err">請輸入持卡人姓名</div></div>
+      </div>
+    `;
+    const numInput = document.getElementById('in_cardnum');
+    numInput.addEventListener('input', ()=>{
+      let v = numInput.value.replace(/\D/g,'').slice(0,16);
+      numInput.value = v.replace(/(.{4})/g,'$1 ').trim();
+    });
+    const expInput = document.getElementById('in_expiry');
+    expInput.addEventListener('input', ()=>{
+      let v = expInput.value.replace(/\D/g,'').slice(0,4);
+      if(v.length>=3) v = v.slice(0,2)+'/'+v.slice(2);
+      expInput.value = v;
+    });
+    const cvvInput = document.getElementById('in_cvv');
+    cvvInput.addEventListener('input', ()=>{ cvvInput.value = cvvInput.value.replace(/\D/g,'').slice(0,3); });
+  }
+
+  function payLabel(){
+    return {card:'信用卡付款', linepay:'LINE Pay', atm:'ATM 轉帳', cod:'貨到付款'}[payMethod];
+  }
+
+  function renderStepReview(){
+    const items = cartItems();
+    const sub = subtotal();
+    const shipping = sub >= 2500 ? 0 : 100;
+    const codFee = payMethod==='cod' ? 30 : 0;
+    const total = sub + shipping + codFee;
+
+    checkoutModal.innerHTML = `
+      <div class="modal-head"><h3>結帳</h3><button class="close-btn" id="modalClose">&times;</button></div>
+      ${stepsBar()}
+      <div class="modal-body">
+        <div class="summary-box">
+          <div style="font-size:13px;color:var(--charcoal-soft);margin-bottom:8px;">收件資訊</div>
+          <div style="font-size:14px;">${orderInfo.name}・${orderInfo.phone}</div>
+          <div style="font-size:13px;color:var(--charcoal-soft);">${orderInfo.address}</div>
+        </div>
+        <div class="summary-box">
+          <div style="font-size:13px;color:var(--charcoal-soft);margin-bottom:8px;">
+            付款方式：${payLabel()}${payMethod==='card' ? '（尾號 '+cardInfo.number.slice(-4)+'）':''}
+          </div>
+          ${items.map(it=>`<div class="mini-item"><span>${it.name} × ${it.qty}</span><span>${fmt(it.price*it.qty)}</span></div>`).join('')}
+          <div class="summary-line"><span>小計</span><span>${fmt(sub)}</span></div>
+          <div class="summary-line"><span>運費</span><span>${shipping===0?'免運':fmt(shipping)}</span></div>
+          ${codFee? `<div class="summary-line"><span>貨到付款手續費</span><span>${fmt(codFee)}</span></div>`:''}
+          <div class="summary-line total"><span>總計</span><span>${fmt(total)}</span></div>
+        </div>
+        <p style="font-size:11.5px;color:var(--charcoal-soft);margin-bottom:10px;">＊本頁使用模擬付款，實際上線需串接合法立案的第三方金流服務（如綠界、藍新或 TapPay）以符合金融交易安全規範。</p>
+        <div id="orderErr" style="font-size:12px;color:#A23B3B;display:none;margin-bottom:10px;"></div>
+      </div>
+      <div class="modal-nav">
+        <button class="btn text" id="backStep2">上一步</button>
+        <button class="btn" id="submitOrderBtn">確認送出訂單</button>
+      </div>
+    `;
+    bindCommon();
+    document.getElementById('backStep2').addEventListener('click', ()=>{ step=2; renderCheckout(); });
+    document.getElementById('submitOrderBtn').addEventListener('click', submitOrder);
+  }
+
+  async function submitOrder(){
+    checkoutModal.innerHTML = `
+      <div class="processing">
+        <div class="spinner"></div>
+        <p style="color:var(--charcoal-soft);font-size:14px;">正在為您處理付款，請稍候…</p>
+      </div>
+    `;
+    try {
+      const payload = {
+        customer: { name: orderInfo.name, phone: orderInfo.phone, email: orderInfo.email, address: orderInfo.address },
+        payMethod,
+        items: cartItems().map(it => ({ id: it.id, qty: it.qty })),
+      };
+      const result = await apiFetch('/api/orders', { method:'POST', body: JSON.stringify(payload) });
+      const total = result.total;
+
+      checkoutModal.innerHTML = `
+        <div class="success">
+          <div class="seal">HW</div>
+          <h3>訂單已送出</h3>
+          <div class="order-no">訂單編號 ${result.orderNo}</div>
+          <p>感謝您的訂購，${orderInfo.name} 您好，我們將以 Email（${orderInfo.email}）通知出貨進度，總金額 ${fmt(total)}。</p>
+          <button class="btn" id="backHome">返回首頁繼續選購</button>
+        </div>
+      `;
+      document.getElementById('backHome').addEventListener('click', async ()=>{
+        cart = {};
+        closeCheckout();
+        await loadProducts();
+        window.scrollTo({top:0,behavior:'smooth'});
+      });
+    } catch(e){
+      step = 3;
+      renderStepReview();
+      const errBox = document.getElementById('orderErr');
+      errBox.textContent = e.message || '訂單送出失敗，請稍後再試';
+      errBox.style.display = 'block';
+    }
+  }
+
+  function bindCommon(){
+    document.getElementById('modalClose')?.addEventListener('click', closeCheckout);
+    document.getElementById('modalCancel')?.addEventListener('click', closeCheckout);
+  }
+  checkoutOverlay.addEventListener('click', e=>{
+    if(e.target.id === 'checkoutOverlay') closeCheckout();
+  });
+
+  /* ============ 商家後台 ============ */
+  const passcodeOverlay = document.getElementById('passcodeOverlay');
+  const productOverlay = document.getElementById('productOverlay');
+  const deleteOverlay = document.getElementById('deleteOverlay');
+  const adminGrid = document.getElementById('adminGrid');
+  let editingId = null;
+  let deletingId = null;
+
+  document.getElementById('adminToggleBtn').addEventListener('click', ()=>{
+    if(mode === 'admin'){ setMode('store'); return; }
+    if(adminToken){ setMode('admin'); return; }
+    passcodeOverlay.classList.add('show');
+    document.getElementById('in_passcode').focus();
+  });
+  document.getElementById('passcodeClose').addEventListener('click', ()=>passcodeOverlay.classList.remove('show'));
+  document.getElementById('passcodeCancel').addEventListener('click', ()=>passcodeOverlay.classList.remove('show'));
+  document.getElementById('passcodeSubmit').addEventListener('click', doAdminLogin);
+  document.getElementById('in_passcode').addEventListener('keydown', e=>{ if(e.key==='Enter') doAdminLogin(); });
+
+  async function doAdminLogin(){
+    const pw = document.getElementById('in_passcode').value;
+    const errEl = document.getElementById('passcodeErr');
+    errEl.textContent = '';
+    try {
+      const { token } = await apiFetch('/api/admin/login', { method:'POST', body: JSON.stringify({ password: pw }) });
+      adminToken = token;
+      passcodeOverlay.classList.remove('show');
+      document.getElementById('in_passcode').value = '';
+      setMode('admin');
+    } catch(e){
+      errEl.textContent = e.message || '登入失敗';
+    }
+  }
+
+  function setMode(next){
+    mode = next;
+    storeViewEl.style.display = mode==='store' ? '' : 'none';
+    adminViewEl.style.display = mode==='admin' ? '' : 'none';
+    document.getElementById('adminToggleLabel').textContent = mode==='admin' ? '返回官網' : '商家登入';
+    document.getElementById('cartBtn').style.display = mode==='store' ? '' : 'none';
+    if(mode === 'admin') renderAdmin();
+  }
+
+  document.getElementById('adminRefreshBtn').addEventListener('click', loadProducts);
+  document.getElementById('adminAddBtn').addEventListener('click', ()=>openProductModal(null));
+  document.getElementById('adminSearch').addEventListener('input', renderAdmin);
+  document.getElementById('adminCategoryFilter').addEventListener('change', renderAdmin);
+
+  function statusClass(status){
+    if(status==='已下架') return 'off';
+    if(status==='缺貨') return 'out';
+    return 'live';
+  }
+
+  function renderAdmin(){
+    const q = (document.getElementById('adminSearch').value || '').toLowerCase();
+    const cat = document.getElementById('adminCategoryFilter').value;
+    const filtered = products.filter(p =>
+      (p.name.toLowerCase().includes(q) || (p.sku||'').toLowerCase().includes(q)) &&
+      (cat === '全部' || p.category === cat)
+    );
+
+    document.getElementById('statCount').textContent = products.length + ' 件';
+    document.getElementById('statValue').textContent = fmt(products.reduce((s,p)=>s+p.price*p.stock,0));
+    document.getElementById('statLow').textContent = products.filter(p=>p.stock<=5).length + ' 項';
+
+    if(filtered.length === 0){
+      adminGrid.innerHTML = `<div class="conn-status" style="grid-column:1/-1;"><p>找不到符合條件的商品</p></div>`;
+      return;
+    }
+
+    adminGrid.innerHTML = filtered.map((p,i) => `
+      <div class="card admin-card" data-id="${p.id}">
+        <div class="card-media" style="background:${toneBg[i%2]};position:relative;">
+          <span class="status-pill ${statusClass(p.status)}">${p.status}</span>
+          ${p.image ? `<img src="${p.image}" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'">` : svgFor(p.category,'width:34%')}
+        </div>
+        <div class="admin-card-body">
+          <div class="card-cat">${p.category} · ${p.sku||''}</div>
+          <div class="card-name">${p.name}</div>
+          <div class="card-desc">${p.description||''}</div>
+          <div class="card-foot">
+            <span class="price">${fmt(p.price)}</span>
+            <span class="${p.stock<=5?'stock-low':''}" style="font-size:12px;color:var(--charcoal-soft);">庫存 ${p.stock}</span>
+          </div>
+          <div class="admin-actions">
+            <button data-edit="${p.id}">編輯</button>
+            <button data-toggle="${p.id}">${p.status==='已下架'?'上架':'下架'}</button>
+            <button class="danger" data-del="${p.id}">刪除</button>
+          </div>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  adminGrid.addEventListener('click', e=>{
+    const edit = e.target.closest('[data-edit]');
+    const toggle = e.target.closest('[data-toggle]');
+    const del = e.target.closest('[data-del]');
+    if(edit) openProductModal(Number(edit.dataset.edit));
+    if(toggle) doToggleStatus(Number(toggle.dataset.toggle));
+    if(del) openDeleteModal(Number(del.dataset.del));
+  });
+
+  function openProductModal(id){
+    editingId = id;
+    const p = id ? products.find(x=>x.id===id) : null;
+    document.getElementById('productModalTitle').textContent = p ? '編輯商品' : '新增商品';
+    document.getElementById('in_p_name').value = p ? p.name : '';
+    document.getElementById('in_p_category').value = p ? p.category : '洋裝';
+    document.getElementById('in_p_sku').value = p ? (p.sku||'') : '';
+    document.getElementById('in_p_price').value = p ? p.price : '';
+    document.getElementById('in_p_stock').value = p ? p.stock : '';
+    document.getElementById('in_p_image').value = p ? (p.image||'') : '';
+    document.getElementById('in_p_desc').value = p ? (p.description||'') : '';
+    ['f_p_name','f_p_price','f_p_stock'].forEach(id=>document.getElementById(id).classList.remove('error'));
+    productOverlay.classList.add('show');
+  }
+  document.getElementById('productModalClose').addEventListener('click', ()=>productOverlay.classList.remove('show'));
+  document.getElementById('productModalCancel').addEventListener('click', ()=>productOverlay.classList.remove('show'));
+  document.getElementById('productModalSave').addEventListener('click', saveProduct);
+
+  async function saveProduct(){
+    const name = document.getElementById('in_p_name').value.trim();
+    const price = document.getElementById('in_p_price').value;
+    const stock = document.getElementById('in_p_stock').value;
+
+    let ok = true;
+    toggleErr('f_p_name', !name); if(!name) ok=false;
+    const priceOk = price && !isNaN(price) && Number(price) > 0;
+    toggleErr('f_p_price', !priceOk); if(!priceOk) ok=false;
+    const stockOk = stock !== '' && !isNaN(stock) && Number(stock) >= 0;
+    toggleErr('f_p_stock', !stockOk); if(!stockOk) ok=false;
+    if(!ok) return;
+
+    const stockNum = Number(stock);
+    const existing = editingId ? products.find(x=>x.id===editingId) : null;
+    const autoStatus = stockNum === 0 ? '缺貨' : (existing && existing.status === '已下架' ? '已下架' : '上架中');
+
+    const payload = {
+      name, category: document.getElementById('in_p_category').value,
+      price: Number(price), stock: stockNum,
+      sku: document.getElementById('in_p_sku').value.trim(),
+      description: document.getElementById('in_p_desc').value.trim(),
+      image: document.getElementById('in_p_image').value.trim(),
+      status: autoStatus,
+    };
+
+    try {
+      const authHeader = { Authorization: 'Bearer ' + adminToken };
+      if(editingId){
+        const updated = await apiFetch('/api/admin/products/' + editingId, { method:'PUT', headers: authHeader, body: JSON.stringify(payload) });
+        products = products.map(p => p.id === editingId ? updated : p);
+        showToast('商品已更新，官網同步顯示');
+      } else {
+        const created = await apiFetch('/api/admin/products', { method:'POST', headers: authHeader, body: JSON.stringify(payload) });
+        products = [created, ...products];
+        showToast('商品已上架，官網同步顯示');
+      }
+      productOverlay.classList.remove('show');
+      renderAdmin();
+      renderProducts();
+    } catch(e){
+      showToast(e.message || '儲存失敗');
+    }
+  }
+
+  async function doToggleStatus(id){
+    const p = products.find(x=>x.id===id);
+    if(!p) return;
+    const nextStatus = p.status === '已下架' ? (p.stock===0 ? '缺貨' : '上架中') : '已下架';
+    try {
+      const updated = await apiFetch('/api/admin/products/' + id, {
+        method:'PUT', headers:{ Authorization:'Bearer ' + adminToken }, body: JSON.stringify({ status: nextStatus })
+      });
+      products = products.map(x => x.id===id ? updated : x);
+      renderAdmin();
+      renderProducts();
+    } catch(e){
+      showToast(e.message || '更新失敗');
+    }
+  }
+
+  function openDeleteModal(id){
+    deletingId = id;
+    const p = products.find(x=>x.id===id);
+    document.getElementById('deleteMsg').textContent = `「${p ? p.name : ''}」將從商品清單中永久移除，此動作無法復原。`;
+    deleteOverlay.classList.add('show');
+  }
+  document.getElementById('deleteCancel').addEventListener('click', ()=>deleteOverlay.classList.remove('show'));
+  document.getElementById('deleteConfirm').addEventListener('click', async ()=>{
+    try {
+      await apiFetch('/api/admin/products/' + deletingId, { method:'DELETE', headers:{ Authorization:'Bearer ' + adminToken } });
+      products = products.filter(p => p.id !== deletingId);
+      showToast('商品已刪除');
+      renderAdmin();
+      renderProducts();
+    } catch(e){
+      showToast(e.message || '刪除失敗');
+    } finally {
+      deleteOverlay.classList.remove('show');
+    }
+  });
+
+  /* ============ 初始化 ============ */
+  loadProducts();
+})();
+</script>
+
+</body>
+</html>
