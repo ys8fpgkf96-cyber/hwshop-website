@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HW.｜Clothes Shop</title>
+<title>HW.｜當代女裝選物</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Noto+Serif+TC:wght@400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -122,6 +122,12 @@
     background:#FBF3F1;border:1px solid rgba(184,147,95,0.25);color:var(--wine);
     font-size:12px;padding:10px 14px;margin-bottom:18px;
   }
+  .policy-body{padding:0 32px 28px;}
+  .policy-body h4{font-family:'Noto Serif TC',serif;font-size:15px;margin:22px 0 10px;color:var(--charcoal);}
+  .policy-body h4:first-child{margin-top:0;}
+  .policy-body p{font-size:13.5px;color:var(--charcoal-soft);line-height:1.9;margin-bottom:10px;}
+  .policy-body ul{margin:0 0 10px;padding-left:20px;}
+  .policy-body li{font-size:13.5px;color:var(--charcoal-soft);line-height:1.9;margin-bottom:6px;}
   .cart-count{
     position:absolute;top:-4px;right:-6px;background:var(--wine);color:#fff;
     font-size:10.5px;min-width:17px;height:17px;border-radius:50%;
@@ -689,13 +695,13 @@
       <p>這裡，是我的選物，也是我的生活記錄。希望你也能在這裡，找到你會愛上的那一點點小確幸。</p>
     </div>
 
-    <p class="letter-signature">— HW Shop / 創辦人 H</p>
+    <p class="letter-signature">— 溫斯頓漢商行 / 創辦人 H</p>
 
     <div style="text-align:center;">
       <a href="#bestsellers" class="btn ghost">認識我們的系列</a>
     </div>
 
-    <p class="letter-legal">HW Shop Co., Ltd. ｜成立於 2026 ©</p>
+    <p class="letter-legal">溫斯頓漢商行 Co., Ltd. ｜成立於 2026 ©</p>
   </div>
 </section>
 
@@ -720,6 +726,8 @@
         <a href="mailto:service@hwshop.tw">service@hwshop.tw</a>
       </div>
       <div class="contact-item">
+        <span class="contact-label">客服專線</span>
+        <span>0800-000-000</span>
       </div>
       <div class="contact-item">
         <span class="contact-label">服務時間</span>
@@ -729,7 +737,7 @@
     <div class="footer-grid">
       <div>
         <div class="logo brand-mark">HW.</div>
-        <p style="margin-top:16px;max-width:260px;">願每件選品，都成為你自信的理由。</p>
+        <p style="margin-top:16px;max-width:260px;">台灣在地設計，精緻剪裁女裝選物店。願每件衣服，都成為你自信的理由。</p>
         <div class="social-icons">
           <a href="#" aria-label="Facebook">f</a>
           <a href="#" aria-label="Instagram">IG</a>
@@ -740,17 +748,15 @@
         <h4>關於我們</h4>
         <ul>
           <li><a href="#story">品牌故事</a></li>
-          <li><a href="#">隱私權保護</a></li>
-          <li><a href="#">會員服務條款</a></li>
+          <li><a href="#" data-policy="privacy">隱私權保護</a></li>
+          <li><a href="#" data-policy="terms">會員服務條款</a></li>
         </ul>
       </div>
       <div>
         <h4>常見問題</h4>
         <ul>
-          <li><a href="#">購物指南</a></li>
-          <li><a href="#">付款／物流</a></li>
-          <li><a href="#">退換貨政策</a></li>
-          <li><a href="#">尺寸對照</a></li>
+          <li><a href="#" data-policy="shipping">付款／物流</a></li>
+          <li><a href="#" data-policy="returns">退換貨政策</a></li>
         </ul>
       </div>
       <div>
@@ -769,6 +775,17 @@
   </div>
 </footer>
 </div><!-- /storeView -->
+
+<!-- 政策內容彈窗(隱私權保護／會員服務條款／付款物流／退換貨政策) -->
+<div class="modal-overlay" id="policyOverlay">
+  <div class="modal" style="max-width:640px;">
+    <div class="modal-head"><h3 id="policyTitle" style="font-size:22px;"></h3><button class="close-btn" id="policyClose">&times;</button></div>
+    <div class="modal-body policy-body" id="policyBody" style="max-height:60vh;overflow-y:auto;"></div>
+    <div class="modal-nav" style="padding-top:0;justify-content:flex-end;">
+      <button class="btn text" id="policyCloseBtn">關閉</button>
+    </div>
+  </div>
+</div>
 
 
 <div id="adminView" style="display:none">
@@ -1788,6 +1805,93 @@
   document.getElementById('carouselNext').addEventListener('click', () => { nextSlide(); startCarousel(); });
   document.getElementById('carouselPrev').addEventListener('click', () => { goToSlide(slideIndex - 1); startCarousel(); });
   startCarousel();
+
+  /* ============ 政策內容彈窗 ============ */
+  const policyContent = {
+    privacy: {
+      title: '隱私權保護政策',
+      html: `
+        <p>溫斯頓漢商行 Co., Ltd.（以下稱「本公司」）所經營之 HW. 購物網站（以下稱「本網站」），重視您的隱私權，依據中華民國個人資料保護法及相關法令，向您說明本公司如何蒐集、處理及利用您的個人資料。</p>
+        <h4>一、個人資料之蒐集</h4>
+        <p>當您於本網站註冊會員、下單購物或使用客服功能時，本公司會請您提供姓名、電話、電子郵件、收件地址等必要資訊，以利完成訂單處理與會員服務。您可自由選擇是否提供，惟若拒絕提供必要資訊，可能導致本公司無法完成訂單或提供相關服務。</p>
+        <p>本網站亦可能透過瀏覽紀錄（如瀏覽器類型、造訪頁面、使用時間）進行流量分析，藉以優化網站服務品質，此類資訊原則上不會與特定個人資料相互勾稽。</p>
+        <h4>二、個人資料之處理及利用</h4>
+        <p>蒐集之個人資料，僅於下列目的範圍內使用：會員管理、訂單處理與客服聯繫、金流與物流服務之提供、行銷活動通知（如電子報、優惠訊息），以及依法令要求之必要揭露。除法律另有規定或經您同意外，本公司不會將您的個人資料提供予無關第三人。</p>
+        <p>若您於本網站付款或選擇物流服務，為完成交易之必要，本公司會將您的部分資料（如收件人姓名、電話、地址）提供予合作之金流業者或物流業者，以利處理款項與配送作業；上述合作業者亦負有妥善保護您個人資料之義務。</p>
+        <h4>三、Cookie 之使用</h4>
+        <p>為提升您的瀏覽體驗，本網站可能於您的裝置上使用 Cookie，以記錄購物車內容、登入狀態等資訊。您可透過瀏覽器設定停用或限制 Cookie，惟可能影響部分網站功能之使用。</p>
+        <h4>四、資料安全</h4>
+        <p>本公司採取合理之技術與管理措施，保護您的個人資料免於遺失、被竊取、竄改或未經授權之存取。請妥善保管您的會員帳號與密碼，若發現帳號有遭盜用之虞，請立即與客服聯繫並更改密碼。</p>
+        <h4>五、您的權利</h4>
+        <p>您得依個人資料保護法，向本公司請求查詢、閱覽、複製、補充、更正個人資料，或請求停止蒐集、處理、利用及刪除。如欲行使上述權利，歡迎透過客服信箱與我們聯繫，本公司將於合理期限內處理您的請求。</p>
+        <h4>六、政策之修訂</h4>
+        <p>本隱私權政策將依法令或業務需要適時修訂，修訂後將公告於本網站。若您對本政策有任何疑問，歡迎聯繫客服信箱 service@hwshop.tw。</p>
+      `
+    },
+    terms: {
+      title: '會員服務條款',
+      html: `
+        <p>當您完成本網站（HW.，由溫斯頓漢商行 Co., Ltd. 經營）之會員註冊程序時，即表示您已閱讀、瞭解並同意接受本服務條款之全部內容。若您未滿 18 歲，應於法定代理人（家長或監護人）閱讀並同意本條款後，方得使用本服務；若您於未取得法定代理人同意之情形下繼續使用本服務，視為法定代理人已同意本條款之所有內容。</p>
+        <h4>一、服務風險</h4>
+        <p>您了解並同意，使用本網站服務所生之風險由您自行承擔，包括但不限於自本網站下載、瀏覽或取得之資訊、圖片所導致之任何損失。</p>
+        <h4>二、會員資料之真實性</h4>
+        <p>您於註冊或使用本服務過程中所提供之資料，應確保真實、正確、完整，並負責隨時更新。若因資料錯誤或不實致生任何爭議或損害，應由您自行負責；本公司並保留於發現資料不實時，暫停或終止該會員帳號之權利。</p>
+        <h4>三、服務之限制與免責</h4>
+        <p>本公司將盡力維持網站服務之穩定與安全，惟不保證服務將不受中斷、延遲或錯誤之影響。因不可抗力因素（如天災、政府法令變更、駭客攻擊、電腦病毒等）導致服務中斷或資料損毀者，本公司不負賠償責任。</p>
+        <h4>四、使用者行為規範</h4>
+        <p>您不得利用本服務從事任何違法、侵害他人權益或欺詐之行為。若因您的行為導致本公司或第三人受有損害，應由您自行負擔全部法律責任，本公司不負連帶責任。</p>
+        <h4>五、條款之修訂</h4>
+        <p>本服務條款如有修訂，將公告於本網站，若您於修訂後繼續使用本服務，視為您已同意修訂後之內容。</p>
+        <p>如對本條款有任何疑問，歡迎聯繫客服信箱 service@hwshop.tw。</p>
+      `
+    },
+    shipping: {
+      title: '付款方式與物流資訊',
+      html: `
+        <h4>付款方式</h4>
+        <ul>
+          <li>信用卡付款：支援 Visa、MasterCard、JCB，款項將於訂單成立後即時處理。</li>
+          <li>LINE Pay：送出訂單後導向 LINE Pay 完成付款。</li>
+          <li>ATM 轉帳：系統將提供專屬虛擬帳號，請於 3 日內完成轉帳，逾期訂單將自動取消。</li>
+          <li>貨到付款：取貨時以現金支付，酌收 NT$30 手續費。</li>
+        </ul>
+        <h4>物流與運費</h4>
+        <ul>
+          <li>訂單金額滿 NT$2,500 享免運優惠，未滿則酌收運費 NT$100。</li>
+          <li>目前提供超商取貨（7-11、全家）與宅配到府（黑貓宅急便）等配送方式，選擇超商取貨無須額外負擔手續費。</li>
+          <li>出貨時間：訂單成立後，將於 1–3 個工作日內安排出貨，實際到貨時間依物流業者作業狀況而定。</li>
+        </ul>
+        <p>若您對付款或配送有任何疑問，歡迎聯繫客服信箱 service@hwshop.tw。</p>
+      `
+    },
+    returns: {
+      title: '退換貨政策',
+      html: `
+        <ul>
+          <li>依消費者保護法規定，您享有商品到貨後 7 天猶豫期（鑑賞期），得無條件辦理退貨。</li>
+          <li>辦理退貨時，商品須保持全新狀態，包含吊牌、包裝、贈品及所有配件均應完整，不得有使用、拆封污損或缺件之情形，以維護您與其他消費者之權益。</li>
+          <li>退貨運費由消費者自行負擔。</li>
+          <li>如商品有瑕疵或因本公司出貨錯誤，請於收到商品後盡速與客服聯繫，本公司將協助辦理換貨或退貨，相關運費由本公司負擔。</li>
+        </ul>
+        <p>如需辦理退換貨，請聯繫客服信箱 service@hwshop.tw，並提供訂單編號與退換貨原因，我們將盡快為您處理。</p>
+      `
+    }
+  };
+
+  const policyOverlay = document.getElementById('policyOverlay');
+  document.querySelectorAll('[data-policy]').forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const item = policyContent[link.dataset.policy];
+      if (!item) return;
+      document.getElementById('policyTitle').textContent = item.title;
+      document.getElementById('policyBody').innerHTML = item.html;
+      policyOverlay.classList.add('show');
+    });
+  });
+  document.getElementById('policyClose').addEventListener('click', () => policyOverlay.classList.remove('show'));
+  document.getElementById('policyCloseBtn').addEventListener('click', () => policyOverlay.classList.remove('show'));
+  policyOverlay.addEventListener('click', e => { if (e.target.id === 'policyOverlay') policyOverlay.classList.remove('show'); });
 
   /* ============ 電子報表單 ============ */
   document.getElementById('newsletterForm').addEventListener('submit', e => {
