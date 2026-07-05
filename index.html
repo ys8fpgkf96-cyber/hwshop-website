@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HW shop｜當代女裝選物</title>
+<title>HW.｜當代女裝選物</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Noto+Serif+TC:wght@400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Noto+Serif+TC:wght@400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
     --ivory:#FDFBF8;
@@ -84,6 +84,15 @@
     font-size:13px;letter-spacing:0;color:var(--wine);
     font-family:'Cormorant Garamond',serif;
   }
+  .brand-mark{
+    font-family:'Alex Brush', cursive;
+    font-size:34px;
+    line-height:1;
+    letter-spacing:.01em;
+    color:#000;
+    font-weight:400;
+  }
+  footer .brand-mark{color:#fff;}
   .nav-links{display:flex;gap:38px;font-size:14.5px;letter-spacing:.04em;color:var(--charcoal-soft);}
   .nav-links a{position:relative;padding:4px 0;transition:color .3s var(--ease);}
   .nav-links a::after{
@@ -109,6 +118,10 @@
   .image-upload-box:hover{border-color:var(--rose);}
   .image-upload-box img{width:100%;height:100%;object-fit:cover;}
   .image-upload-placeholder{display:flex;flex-direction:column;align-items:center;gap:8px;color:#B7ADA8;font-size:12px;text-align:center;padding:0 20px;}
+  .member-fill-note{
+    background:#FBF3F1;border:1px solid rgba(184,147,95,0.25);color:var(--wine);
+    font-size:12px;padding:10px 14px;margin-bottom:18px;
+  }
   .cart-count{
     position:absolute;top:-4px;right:-6px;background:var(--wine);color:#fff;
     font-size:10.5px;min-width:17px;height:17px;border-radius:50%;
@@ -195,6 +208,21 @@
 
   /* ---------- Story section ---------- */
   .story{display:grid;grid-template-columns:0.9fr 1.1fr;gap:60px;align-items:center;}
+
+  /* ---------- Founder Letter ---------- */
+  .letter-wrap{max-width:680px;margin:0 auto;}
+  .letter-body p{
+    color:var(--charcoal-soft);font-size:15.5px;line-height:2;margin-bottom:22px;
+    text-align:left;
+  }
+  .letter-signature{
+    font-family:'Cormorant Garamond',serif;font-style:italic;font-size:19px;color:var(--wine);
+    text-align:right;margin:0 0 40px;
+  }
+  .letter-legal{
+    text-align:center;font-size:11.5px;color:var(--charcoal-soft);letter-spacing:.05em;
+    margin-top:28px;padding-top:22px;border-top:1px solid rgba(184,147,95,0.22);
+  }
   .seal{
     width:92px;height:92px;border-radius:50%;border:1px solid var(--gold);
     display:flex;align-items:center;justify-content:center;margin-bottom:26px;
@@ -509,7 +537,7 @@
 
 <header>
   <div class="nav">
-    <div class="logo"><span class="mark">HW</span> HW shop</div>
+    <div class="logo brand-mark">HW.</div>
     <nav class="nav-links">
       <a href="#new">最新商品</a>
       <a href="#bestsellers">熱銷精選</a>
@@ -553,7 +581,7 @@
       <div class="slide-inner">
         <p class="eyebrow">2026 春夏系列</p>
         <h1>在細節裡，找到<br>屬於<em>自己</em>的優雅</h1>
-        <p>HW shop 精選當代女裝，以細膩剪裁與純淨色調，詮釋日常裡的講究。</p>
+        <p>HW. 精選當代女裝，以細膩剪裁與純淨色調，詮釋日常裡的講究。</p>
         <a href="#bestsellers" class="btn">探索本季系列</a>
       </div>
       <div class="slide-art">
@@ -646,23 +674,28 @@
 </div>
 
 <section class="pad bg-blush" id="story">
-  <div class="wrap story">
-    <div>
-      <div class="seal">HW</div>
-      <p class="eyebrow">Our Story</p>
-      <h2>剪裁之間，是我們對品質的堅持</h2>
-      <p>HW shop 成立的初衷很簡單：讓精緻的穿著成為日常，而非特例。我們與台灣在地工坊合作，堅持小批量製作，從選布到縫製都親自把關。</p>
-      <p>沒有浮誇的裝飾，只有恰到好處的剪裁與觸感——這是我們理解的「精緻」。</p>
+  <div class="wrap letter-wrap">
+    <div class="seal" style="margin:0 auto 22px;">H</div>
+    <p class="eyebrow" style="text-align:center;">Our Story</p>
+    <h2 style="text-align:center;max-width:560px;margin:14px auto 34px;">把旅途中心動的美好，帶回你身邊</h2>
+
+    <div class="letter-body">
+      <p>30 歲這年，我決定把出差旅途中，讓我眼睛一亮、心動的美好小物，分享給你。</p>
+      <p>工作讓我走遍不同的城市，飛機、飯店、車站間穿梭的日子裡，我開始留意那些讓日常變得有趣、有質感、有溫度的細節。</p>
+      <p>不論是一條在京都買的手工圍巾、一罐來自北歐的小眾香氛、還是一雙在異國街角發現的手作鞋——我總想著：「要是身邊的誰誰誰也能擁有就好了！」</p>
+      <p>於是，我創立了這個品牌。</p>
+      <p>這裡賣的每一樣東西，我都自己看過、用過、摸過，甚至帶著它們一起經歷過生活。</p>
+      <p>它們不是潮流最前線，而是能讓你每天生活都多一點「剛剛好」的東西。</p>
+      <p>這裡，是我的選物，也是我的生活記錄。希望你也能在這裡，找到你會愛上的那一點點小確幸。</p>
+    </div>
+
+    <p class="letter-signature">— 溫斯頓漢商行 / 創辦人 H</p>
+
+    <div style="text-align:center;">
       <a href="#bestsellers" class="btn ghost">認識我們的系列</a>
     </div>
-    <div class="story-art">
-      <svg viewBox="0 0 200 240" fill="none" stroke="#8B4A57" stroke-width="1.1">
-        <path d="M60 30h80v20l-16 14v130a6 6 0 0 1-6 6H82a6 6 0 0 1-6-6V64L60 50Z"/>
-        <path d="M60 30l40 34 40-34" stroke-width="1"/>
-        <line x1="80" y1="90" x2="120" y2="90" stroke-width="0.8"/>
-        <line x1="80" y1="120" x2="120" y2="120" stroke-width="0.8"/>
-      </svg>
-    </div>
+
+    <p class="letter-legal">溫斯頓漢商行 Co., Ltd. ｜成立於 2026 ©</p>
   </div>
 </section>
 
@@ -697,7 +730,7 @@
     </div>
     <div class="footer-grid">
       <div>
-        <div class="logo">HW shop</div>
+        <div class="logo brand-mark">HW.</div>
         <p style="margin-top:16px;max-width:260px;">台灣在地設計，精緻剪裁女裝選物店。願每件衣服，都成為你自信的理由。</p>
         <div class="social-icons">
           <a href="#" aria-label="Facebook">f</a>
@@ -732,7 +765,7 @@
       </div>
     </div>
     <div class="bottom-bar">
-      <span>© 2026 HW shop. All rights reserved.</span>
+      <span>© 2026 HW. All rights reserved.</span>
       <span>Taipei, Taiwan</span>
     </div>
   </div>
@@ -1104,6 +1137,7 @@
   function openCheckout(){
     if(cartItems().length===0){ showToast('購物袋是空的'); return; }
     step = 1;
+    applyCustomerInfoToOrder();
     checkoutOverlay.classList.add('show');
     renderCheckout();
   }
@@ -1129,6 +1163,7 @@
       <div class="modal-head"><h3>結帳</h3><button class="close-btn" id="modalClose">&times;</button></div>
       ${stepsBar()}
       <div class="modal-body">
+        ${customerToken ? `<div class="member-fill-note">已使用會員「${customerName}」的資料自動帶入，如有變動可直接修改</div>` : ''}
         <div class="field" id="f_name"><label>收件人姓名</label><input id="in_name" value="${orderInfo.name}" placeholder="請輸入姓名"><div class="err">請輸入姓名</div></div>
         <div class="field-row">
           <div class="field" id="f_phone"><label>聯絡電話</label><input id="in_phone" value="${orderInfo.phone}" placeholder="09xx-xxx-xxx"><div class="err">請輸入有效電話</div></div>
@@ -1316,12 +1351,18 @@
         payMethod,
         items: cartItems().map(it => ({ id: it.id, qty: it.qty })),
       };
-      const result = await apiFetch('/api/orders', { method:'POST', body: JSON.stringify(payload) });
+      const orderHeaders = customerToken ? { Authorization: 'Bearer ' + customerToken } : {};
+      const result = await apiFetch('/api/orders', { method:'POST', headers: orderHeaders, body: JSON.stringify(payload) });
       const total = result.total;
+
+      if (customerToken) {
+        customerPhone = orderInfo.phone;
+        customerAddress = orderInfo.address;
+      }
 
       checkoutModal.innerHTML = `
         <div class="success">
-          <div class="seal">HW</div>
+          <div class="brand-mark" style="text-align:center;margin-bottom:18px;">HW.</div>
           <h3>訂單已送出</h3>
           <div class="order-no">訂單編號 ${result.orderNo}</div>
           <p>感謝您的訂購，${orderInfo.name} 您好，我們將以 Email（${orderInfo.email}）通知出貨進度，總金額 ${fmt(total)}。</p>
@@ -1354,6 +1395,9 @@
   /* ============ 會員登入/註冊 ============ */
   let customerToken = null;
   let customerName = '';
+  let customerEmail = '';
+  let customerPhone = '';
+  let customerAddress = '';
   const memberOverlay = document.getElementById('memberOverlay');
   const memberBtn = document.getElementById('memberBtn');
   const memberLabel = document.getElementById('memberLabel');
@@ -1364,6 +1408,9 @@
       if (confirm(`要登出「${customerName}」的會員帳號嗎？`)) {
         customerToken = null;
         customerName = '';
+        customerEmail = '';
+        customerPhone = '';
+        customerAddress = '';
         memberLabel.textContent = '會員登入';
       }
       return;
@@ -1382,6 +1429,31 @@
   }
   document.querySelectorAll('.member-tab').forEach(t => t.addEventListener('click', () => switchMemberTab(t.dataset.tab)));
 
+  // 登入/註冊成功後，向後端取得完整會員資料(含先前儲存的電話/地址)，供結帳自動帶入
+  async function loadCustomerProfile(){
+    try {
+      const profile = await apiFetch('/api/customers/me', { headers: { Authorization: 'Bearer ' + customerToken } });
+      customerName = profile.name;
+      customerEmail = profile.email;
+      customerPhone = profile.phone || '';
+      customerAddress = profile.address || '';
+      memberLabel.textContent = profile.name;
+      // 若結帳視窗目前正開在第一步，重新帶入最新資料
+      if (checkoutOverlay.classList.contains('show') && step === 1) {
+        applyCustomerInfoToOrder();
+        renderCheckout();
+      }
+    } catch(e) { /* 讀取失敗不影響登入狀態，結帳時仍可手動輸入 */ }
+  }
+
+  function applyCustomerInfoToOrder(){
+    if (!customerToken) return;
+    if (!orderInfo.name) orderInfo.name = customerName;
+    if (!orderInfo.email) orderInfo.email = customerEmail;
+    if (!orderInfo.phone) orderInfo.phone = customerPhone;
+    if (!orderInfo.address) orderInfo.address = customerAddress;
+  }
+
   document.getElementById('loginSubmit').addEventListener('click', async () => {
     const email = document.getElementById('in_login_email').value.trim();
     const password = document.getElementById('in_login_password').value;
@@ -1397,12 +1469,11 @@
     try {
       const result = await apiFetch('/api/customers/login', { method: 'POST', body: JSON.stringify({ email, password }) });
       customerToken = result.token;
-      customerName = result.name;
-      memberLabel.textContent = result.name;
       memberOverlay.classList.remove('show');
       document.getElementById('in_login_email').value = '';
       document.getElementById('in_login_password').value = '';
       showToast(`歡迎回來，${result.name}！`);
+      await loadCustomerProfile();
     } catch (e) {
       errBox.textContent = e.message || '登入失敗';
       errBox.style.display = 'block';
@@ -1430,11 +1501,10 @@
     try {
       const result = await apiFetch('/api/customers/register', { method: 'POST', body: JSON.stringify({ name, email, password }) });
       customerToken = result.token;
-      customerName = result.name;
-      memberLabel.textContent = result.name;
       memberOverlay.classList.remove('show');
       ['in_reg_name','in_reg_email','in_reg_password','in_reg_password2'].forEach(id => document.getElementById(id).value = '');
       showToast(`註冊成功，歡迎加入，${result.name}！`);
+      await loadCustomerProfile();
     } catch (e) {
       errBox.textContent = e.message || '註冊失敗';
       errBox.style.display = 'block';
