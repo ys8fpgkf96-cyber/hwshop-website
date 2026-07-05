@@ -94,6 +94,21 @@
   .nav-links a:hover::after{transform:scaleX(1);transform-origin:left;}
   .nav-right{display:flex;align-items:center;gap:22px;}
   .icon-btn{position:relative;background:none;border:none;color:var(--charcoal);padding:6px;}
+  .member-btn{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--charcoal-soft);}
+  .member-btn:hover{color:var(--wine);}
+  .member-tabs{display:flex;border-bottom:1px solid rgba(184,147,95,0.2);margin:0 32px;}
+  .member-tab{flex:1;text-align:center;padding:12px 0;font-size:13.5px;color:var(--charcoal-soft);background:none;border:none;border-bottom:2px solid transparent;margin-bottom:-1px;}
+  .member-tab.active{color:var(--wine);border-color:var(--wine);font-weight:500;}
+
+  /* ---------- Admin Image Upload ---------- */
+  .image-upload-box{
+    border:1.5px dashed #DED2CA;background:#fff;aspect-ratio:4/3;max-height:180px;
+    display:flex;align-items:center;justify-content:center;cursor:pointer;transition:border-color .25s;
+    overflow:hidden;position:relative;
+  }
+  .image-upload-box:hover{border-color:var(--rose);}
+  .image-upload-box img{width:100%;height:100%;object-fit:cover;}
+  .image-upload-placeholder{display:flex;flex-direction:column;align-items:center;gap:8px;color:#B7ADA8;font-size:12px;text-align:center;padding:0 20px;}
   .cart-count{
     position:absolute;top:-4px;right:-6px;background:var(--wine);color:#fff;
     font-size:10.5px;min-width:17px;height:17px;border-radius:50%;
@@ -513,6 +528,10 @@
       <a href="#footer">聯絡資訊</a>
     </nav>
     <div class="nav-right">
+      <button class="icon-btn member-btn" id="memberBtn" aria-label="會員" title="會員登入/註冊">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="3.5"/><path d="M4.5 20c1.5-4 4.5-6 7.5-6s6 2 7.5 6"/></svg>
+        <span id="memberLabel">會員登入</span>
+      </button>
       <button class="icon-btn" id="adminToggleBtn" aria-label="商家後台" title="商家後台" style="font-size:12px;display:flex;align-items:center;gap:6px;color:var(--charcoal-soft);">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1-1.6 1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.6-1 1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.9.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.9V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>
         <span id="adminToggleLabel">商家登入</span>
@@ -522,6 +541,7 @@
         <span class="cart-count" id="cartCount">0</span>
       </button>
     </div>
+
   </div>
 </header>
 
@@ -772,6 +792,34 @@
   </div>
 </div>
 
+<!-- 會員登入/註冊視窗 -->
+<div class="modal-overlay" id="memberOverlay">
+  <div class="modal" style="max-width:400px;">
+    <div class="modal-head"><h3 id="memberModalTitle" style="font-size:20px;">會員登入</h3><button class="close-btn" id="memberModalClose">&times;</button></div>
+    <div class="member-tabs">
+      <button class="member-tab active" data-tab="login">登入</button>
+      <button class="member-tab" data-tab="register">註冊新帳號</button>
+    </div>
+    <div class="modal-body">
+      <div id="memberPanelLogin">
+        <div class="field" id="f_login_email"><label>Email</label><input type="email" id="in_login_email" placeholder="you@example.com"><div class="err">請輸入有效 Email</div></div>
+        <div class="field" id="f_login_password"><label>密碼</label><input type="password" id="in_login_password" placeholder="請輸入密碼"><div class="err">請輸入密碼</div></div>
+        <div id="loginErr" style="font-size:12px;color:#A23B3B;display:none;margin-bottom:10px;"></div>
+        <button class="btn" id="loginSubmit" style="width:100%;justify-content:center;">登入</button>
+      </div>
+      <div id="memberPanelRegister" style="display:none;">
+        <div class="field" id="f_reg_name"><label>姓名</label><input id="in_reg_name" placeholder="請輸入姓名"><div class="err">請輸入姓名</div></div>
+        <div class="field" id="f_reg_email"><label>Email</label><input type="email" id="in_reg_email" placeholder="you@example.com"><div class="err">請輸入有效 Email</div></div>
+        <div class="field" id="f_reg_password"><label>密碼（至少 6 個字元）</label><input type="password" id="in_reg_password" placeholder="請設定密碼"><div class="err">密碼至少需要 6 個字元</div></div>
+        <div class="field" id="f_reg_password2"><label>確認密碼</label><input type="password" id="in_reg_password2" placeholder="請再輸入一次密碼"><div class="err">兩次密碼不一致</div></div>
+        <div id="registerErr" style="font-size:12px;color:#A23B3B;display:none;margin-bottom:10px;"></div>
+        <button class="btn" id="registerSubmit" style="width:100%;justify-content:center;">建立帳號</button>
+      </div>
+      <p style="font-size:11px;color:#B7ADA8;margin-top:14px;text-align:center;">若伺服器剛喚醒，處理可能需要多等幾秒</p>
+    </div>
+  </div>
+</div>
+
 <!-- 商品新增/編輯視窗 -->
 <div class="modal-overlay" id="productOverlay">
   <div class="modal">
@@ -790,7 +838,19 @@
         <div class="field" id="f_p_price"><label>售價 (NT$)</label><input id="in_p_price" placeholder="2980" inputmode="numeric"><div class="err">請輸入有效價格</div></div>
         <div class="field" id="f_p_stock"><label>庫存數量</label><input id="in_p_stock" placeholder="20" inputmode="numeric"><div class="err">請輸入有效庫存數量</div></div>
       </div>
-      <div class="field"><label>商品圖片網址（選填）</label><input id="in_p_image" placeholder="https://..."></div>
+      <div class="field">
+        <label>商品照片</label>
+        <div class="image-upload-box" id="imageUploadBox">
+          <img id="imagePreview" style="display:none;">
+          <div id="imageUploadPlaceholder" class="image-upload-placeholder">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#B7ADA8" stroke-width="1.3"><path d="M4 16l4.5-5 4.5 5 3-3.5L20 16"/><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8" cy="9" r="1.5"/></svg>
+            <span>點擊上傳照片（JPG / PNG / WEBP，5MB 內）</span>
+          </div>
+        </div>
+        <input type="file" id="in_p_imagefile" accept="image/png,image/jpeg,image/webp,image/gif" style="display:none;">
+        <div id="uploadStatus" style="font-size:11.5px;color:var(--charcoal-soft);margin-top:6px;"></div>
+      </div>
+      <div class="field"><label>或輸入圖片網址（選填，未上傳照片時使用）</label><input id="in_p_image" placeholder="https://..."></div>
       <div class="field"><label>商品描述</label><textarea id="in_p_desc" style="min-height:80px;resize:none;" placeholder="材質、剪裁、特色說明..."></textarea></div>
     </div>
     <div class="modal-nav">
@@ -1291,6 +1351,96 @@
     if(e.target.id === 'checkoutOverlay') closeCheckout();
   });
 
+  /* ============ 會員登入/註冊 ============ */
+  let customerToken = null;
+  let customerName = '';
+  const memberOverlay = document.getElementById('memberOverlay');
+  const memberBtn = document.getElementById('memberBtn');
+  const memberLabel = document.getElementById('memberLabel');
+
+  memberBtn.addEventListener('click', () => {
+    if (customerToken) {
+      // 已登入 → 點擊登出
+      if (confirm(`要登出「${customerName}」的會員帳號嗎？`)) {
+        customerToken = null;
+        customerName = '';
+        memberLabel.textContent = '會員登入';
+      }
+      return;
+    }
+    memberOverlay.classList.add('show');
+    switchMemberTab('login');
+  });
+  document.getElementById('memberModalClose').addEventListener('click', () => memberOverlay.classList.remove('show'));
+  memberOverlay.addEventListener('click', e => { if (e.target.id === 'memberOverlay') memberOverlay.classList.remove('show'); });
+
+  function switchMemberTab(tab) {
+    document.querySelectorAll('.member-tab').forEach(t => t.classList.toggle('active', t.dataset.tab === tab));
+    document.getElementById('memberPanelLogin').style.display = tab === 'login' ? '' : 'none';
+    document.getElementById('memberPanelRegister').style.display = tab === 'register' ? '' : 'none';
+    document.getElementById('memberModalTitle').textContent = tab === 'login' ? '會員登入' : '註冊新帳號';
+  }
+  document.querySelectorAll('.member-tab').forEach(t => t.addEventListener('click', () => switchMemberTab(t.dataset.tab)));
+
+  document.getElementById('loginSubmit').addEventListener('click', async () => {
+    const email = document.getElementById('in_login_email').value.trim();
+    const password = document.getElementById('in_login_password').value;
+    const errBox = document.getElementById('loginErr');
+    errBox.style.display = 'none';
+
+    let ok = true;
+    const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    toggleErr('f_login_email', !emailOk); if (!emailOk) ok = false;
+    toggleErr('f_login_password', !password); if (!password) ok = false;
+    if (!ok) return;
+
+    try {
+      const result = await apiFetch('/api/customers/login', { method: 'POST', body: JSON.stringify({ email, password }) });
+      customerToken = result.token;
+      customerName = result.name;
+      memberLabel.textContent = result.name;
+      memberOverlay.classList.remove('show');
+      document.getElementById('in_login_email').value = '';
+      document.getElementById('in_login_password').value = '';
+      showToast(`歡迎回來，${result.name}！`);
+    } catch (e) {
+      errBox.textContent = e.message || '登入失敗';
+      errBox.style.display = 'block';
+    }
+  });
+
+  document.getElementById('registerSubmit').addEventListener('click', async () => {
+    const name = document.getElementById('in_reg_name').value.trim();
+    const email = document.getElementById('in_reg_email').value.trim();
+    const password = document.getElementById('in_reg_password').value;
+    const password2 = document.getElementById('in_reg_password2').value;
+    const errBox = document.getElementById('registerErr');
+    errBox.style.display = 'none';
+
+    let ok = true;
+    toggleErr('f_reg_name', !name); if (!name) ok = false;
+    const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    toggleErr('f_reg_email', !emailOk); if (!emailOk) ok = false;
+    const pwOk = password.length >= 6;
+    toggleErr('f_reg_password', !pwOk); if (!pwOk) ok = false;
+    const matchOk = password === password2 && password2 !== '';
+    toggleErr('f_reg_password2', !matchOk); if (!matchOk) ok = false;
+    if (!ok) return;
+
+    try {
+      const result = await apiFetch('/api/customers/register', { method: 'POST', body: JSON.stringify({ name, email, password }) });
+      customerToken = result.token;
+      customerName = result.name;
+      memberLabel.textContent = result.name;
+      memberOverlay.classList.remove('show');
+      ['in_reg_name','in_reg_email','in_reg_password','in_reg_password2'].forEach(id => document.getElementById(id).value = '');
+      showToast(`註冊成功，歡迎加入，${result.name}！`);
+    } catch (e) {
+      errBox.textContent = e.message || '註冊失敗';
+      errBox.style.display = 'block';
+    }
+  });
+
   /* ============ 商家後台 ============ */
   const passcodeOverlay = document.getElementById('passcodeOverlay');
   const productOverlay = document.getElementById('productOverlay');
@@ -1395,6 +1545,43 @@
     if(del) openDeleteModal(Number(del.dataset.del));
   });
 
+  let pendingImageBase64 = null;
+  const imageUploadBox = document.getElementById('imageUploadBox');
+  const imagePreview = document.getElementById('imagePreview');
+  const imageUploadPlaceholder = document.getElementById('imageUploadPlaceholder');
+  const imageFileInput = document.getElementById('in_p_imagefile');
+  const uploadStatus = document.getElementById('uploadStatus');
+
+  imageUploadBox.addEventListener('click', () => imageFileInput.click());
+  imageFileInput.addEventListener('change', () => {
+    const file = imageFileInput.files[0];
+    if (!file) return;
+    if (file.size > 5 * 1024 * 1024) { showToast('圖片檔案過大，請選擇 5MB 以內的圖片'); return; }
+    const reader = new FileReader();
+    reader.onload = () => {
+      pendingImageBase64 = reader.result;
+      imagePreview.src = pendingImageBase64;
+      imagePreview.style.display = 'block';
+      imageUploadPlaceholder.style.display = 'none';
+      uploadStatus.textContent = '已選擇新照片，儲存後會自動上傳';
+    };
+    reader.readAsDataURL(file);
+  });
+
+  function resetImageUpload(existingUrl){
+    pendingImageBase64 = null;
+    imageFileInput.value = '';
+    uploadStatus.textContent = '';
+    if (existingUrl) {
+      imagePreview.src = existingUrl;
+      imagePreview.style.display = 'block';
+      imageUploadPlaceholder.style.display = 'none';
+    } else {
+      imagePreview.style.display = 'none';
+      imageUploadPlaceholder.style.display = 'flex';
+    }
+  }
+
   function openProductModal(id){
     editingId = id;
     const p = id ? products.find(x=>x.id===id) : null;
@@ -1406,6 +1593,7 @@
     document.getElementById('in_p_stock').value = p ? p.stock : '';
     document.getElementById('in_p_image').value = p ? (p.image||'') : '';
     document.getElementById('in_p_desc').value = p ? (p.description||'') : '';
+    resetImageUpload(p ? p.image : null);
     ['f_p_name','f_p_price','f_p_stock'].forEach(id=>document.getElementById(id).classList.remove('error'));
     productOverlay.classList.add('show');
   }
@@ -1429,18 +1617,33 @@
     const stockNum = Number(stock);
     const existing = editingId ? products.find(x=>x.id===editingId) : null;
     const autoStatus = stockNum === 0 ? '缺貨' : (existing && existing.status === '已下架' ? '已下架' : '上架中');
+    const authHeader = { Authorization: 'Bearer ' + adminToken };
 
-    const payload = {
-      name, category: document.getElementById('in_p_category').value,
-      price: Number(price), stock: stockNum,
-      sku: document.getElementById('in_p_sku').value.trim(),
-      description: document.getElementById('in_p_desc').value.trim(),
-      image: document.getElementById('in_p_image').value.trim(),
-      status: autoStatus,
-    };
+    let imageUrl = document.getElementById('in_p_image').value.trim();
+
+    const saveBtn = document.getElementById('productModalSave');
+    const originalLabel = saveBtn.textContent;
 
     try {
-      const authHeader = { Authorization: 'Bearer ' + adminToken };
+      if (pendingImageBase64) {
+        saveBtn.disabled = true;
+        saveBtn.textContent = '上傳照片中…';
+        uploadStatus.textContent = '上傳中…';
+        const uploadResult = await apiFetch('/api/admin/upload', { method:'POST', headers: authHeader, body: JSON.stringify({ imageBase64: pendingImageBase64 }) });
+        imageUrl = uploadResult.url;
+        uploadStatus.textContent = '上傳完成';
+      }
+
+      const payload = {
+        name, category: document.getElementById('in_p_category').value,
+        price: Number(price), stock: stockNum,
+        sku: document.getElementById('in_p_sku').value.trim(),
+        description: document.getElementById('in_p_desc').value.trim(),
+        image: imageUrl,
+        status: autoStatus,
+      };
+
+      saveBtn.textContent = '儲存中…';
       if(editingId){
         const updated = await apiFetch('/api/admin/products/' + editingId, { method:'PUT', headers: authHeader, body: JSON.stringify(payload) });
         products = products.map(p => p.id === editingId ? updated : p);
@@ -1455,6 +1658,9 @@
       renderProducts();
     } catch(e){
       showToast(e.message || '儲存失敗');
+    } finally {
+      saveBtn.disabled = false;
+      saveBtn.textContent = originalLabel;
     }
   }
 
