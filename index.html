@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HW.Shop</title>
+<title>HW.｜當代女裝選物</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Noto+Serif+TC:wght@400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -419,6 +419,36 @@
   .conn-status{text-align:center;padding:100px 20px;color:var(--charcoal-soft);}
   .conn-status .spinner{margin:0 auto 18px;}
 
+  /* ---------- Admin Tabs ---------- */
+  .admin-tabs{display:flex;gap:0;border-bottom:1px solid rgba(184,147,95,0.25);margin-bottom:28px;}
+  .admin-tab{
+    padding:11px 22px;font-size:13.5px;color:var(--charcoal-soft);background:none;border:none;
+    border-bottom:2px solid transparent;margin-bottom:-1px;transition:color .2s;
+  }
+  .admin-tab.active{color:var(--wine);border-color:var(--wine);font-weight:500;}
+  .admin-tab:hover{color:var(--wine);}
+
+  /* ---------- Order Cards ---------- */
+  .order-card{background:#fff;border:1px solid rgba(184,147,95,0.18);margin-bottom:18px;}
+  .order-card-head{
+    display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;
+    padding:16px 20px;border-bottom:1px solid rgba(184,147,95,0.14);background:var(--ivory-2);
+  }
+  .order-no-label{font-family:'Cormorant Garamond',serif;font-size:18px;color:var(--wine);}
+  .order-date{font-size:11.5px;color:var(--charcoal-soft);margin-top:2px;}
+  .order-badges{display:flex;gap:8px;align-items:center;}
+  .order-body{display:grid;grid-template-columns:1fr 1fr;gap:0;}
+  .order-col{padding:18px 20px;}
+  .order-col + .order-col{border-left:1px solid rgba(184,147,95,0.14);}
+  .order-field{margin-bottom:12px;}
+  .order-field-label{font-size:10.5px;letter-spacing:.1em;color:var(--gold);text-transform:uppercase;margin-bottom:3px;}
+  .order-field-value{font-size:13.5px;color:var(--charcoal);}
+  .order-items-list{margin-bottom:10px;}
+  .order-item-row{display:flex;justify-content:space-between;font-size:12.5px;color:var(--charcoal-soft);padding:5px 0;border-bottom:1px dashed rgba(184,147,95,0.15);}
+  .order-total-row{display:flex;justify-content:space-between;font-size:13px;padding:5px 0;color:var(--charcoal-soft);}
+  .order-total-row.grand{font-family:'Cormorant Garamond',serif;font-size:19px;color:var(--wine);padding-top:8px;margin-top:4px;border-top:1px solid rgba(184,147,95,0.2);}
+  @media (max-width:720px){ .order-body{grid-template-columns:1fr;} .order-col + .order-col{border-left:none;border-top:1px solid rgba(184,147,95,0.14);} }
+
   /* ---------- Promo Bar ---------- */
   .promo-bar{
     background:var(--wine);color:#fff;overflow:hidden;white-space:nowrap;
@@ -533,8 +563,10 @@
 <div class="promo-bar" id="promoBar">
   <div class="promo-track">
     <span>🎀 全館訂單滿 NT$2,500 免運</span>
+    <span>💌 新會員加入 LINE 領 NT$100 購物金</span>
     <span>✨ 夏日精選任選 2 件 95 折</span>
     <span>🎀 全館訂單滿 NT$2,500 免運</span>
+    <span>💌 新會員加入 LINE 領 NT$100 購物金</span>
     <span>✨ 夏日精選任選 2 件 95 折</span>
   </div>
 </div>
@@ -599,6 +631,8 @@
     <div class="slide slide-b">
       <div class="slide-inner">
         <p class="eyebrow">Member Exclusive</p>
+        <h1>新會員<br><em>即刻</em>享好禮</h1>
+        <p>加入 LINE 官方帳號，立即領取 NT$100 購物金，結帳現折使用。</p>
         <a href="#footer" class="btn">立即加入</a>
       </div>
       <div class="slide-art">
@@ -691,13 +725,13 @@
       <p>這裡，是我的選物，也是我的生活記錄。希望你也能在這裡，找到你會愛上的那一點點小確幸。</p>
     </div>
 
-    <p class="letter-signature">— HW Shop. / 創辦人 H</p>
+    <p class="letter-signature">— 溫斯頓漢商行 / 創辦人 H</p>
 
     <div style="text-align:center;">
       <a href="#bestsellers" class="btn ghost">認識我們的系列</a>
     </div>
 
-    <p class="letter-legal">HW Shop Co., Ltd. ｜成立於 2026 ©</p>
+    <p class="letter-legal">溫斯頓漢商行 Co., Ltd. ｜成立於 2026 ©</p>
   </div>
 </section>
 
@@ -722,6 +756,8 @@
         <a href="mailto:service@hwshop.tw">service@hwshop.tw</a>
       </div>
       <div class="contact-item">
+        <span class="contact-label">客服專線</span>
+        <span>0800-000-000</span>
       </div>
       <div class="contact-item">
         <span class="contact-label">服務時間</span>
@@ -731,7 +767,7 @@
     <div class="footer-grid">
       <div>
         <div class="logo brand-mark">HW.</div>
-        <p style="margin-top:16px;max-width:260px;">願每件選品，都成為你自信的理由。</p>
+        <p style="margin-top:16px;max-width:260px;">台灣在地設計，精緻剪裁女裝選物店。願每件衣服，都成為你自信的理由。</p>
         <div class="social-icons">
           <a href="#" aria-label="Facebook">f</a>
           <a href="#" aria-label="Instagram">IG</a>
@@ -784,34 +820,67 @@
 
 <div id="adminView" style="display:none">
   <div class="wrap" style="padding-top:32px;padding-bottom:80px;">
-    <p style="font-size:11.5px;color:var(--charcoal-soft);margin-bottom:20px;">與官網共用同一份商品資料，異動將即時反映在前台。</p>
+    <p style="font-size:11.5px;color:var(--charcoal-soft);margin-bottom:20px;">與官網共用同一份商品與訂單資料，異動將即時反映在前台。</p>
 
-    <div class="admin-stats">
-      <div class="stat-card">
-        <div class="stat-icon">📦</div>
-        <div><div class="stat-label">商品總數</div><div class="stat-value" id="statCount">0 件</div></div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-icon">💰</div>
-        <div><div class="stat-label">庫存總價值</div><div class="stat-value" id="statValue">NT$ 0</div></div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-icon warn">⚠️</div>
-        <div><div class="stat-label">低庫存提醒（≤5）</div><div class="stat-value" id="statLow">0 項</div></div>
-      </div>
+    <div class="admin-tabs">
+      <button class="admin-tab active" data-admintab="products">商品管理</button>
+      <button class="admin-tab" data-admintab="orders">訂單管理</button>
     </div>
 
-    <div class="admin-toolbar">
-      <input id="adminSearch" class="input" placeholder="搜尋商品名稱或 SKU" style="flex:1;min-width:220px;">
-      <select id="adminCategoryFilter" class="input" style="width:auto;">
-        <option>全部</option>
-        <option>洋裝</option><option>上衣</option><option>外套</option><option>裙裝</option><option>配件</option><option>鞋款</option>
-      </select>
-      <button class="btn small ghost" id="adminRefreshBtn">同步資料</button>
-      <button class="btn small" id="adminAddBtn">＋ 新增商品</button>
+    <!-- 商品管理面板 -->
+    <div id="adminProductsPanel">
+      <div class="admin-stats">
+        <div class="stat-card">
+          <div class="stat-icon">📦</div>
+          <div><div class="stat-label">商品總數</div><div class="stat-value" id="statCount">0 件</div></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">💰</div>
+          <div><div class="stat-label">庫存總價值</div><div class="stat-value" id="statValue">NT$ 0</div></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon warn">⚠️</div>
+          <div><div class="stat-label">低庫存提醒（≤5）</div><div class="stat-value" id="statLow">0 項</div></div>
+        </div>
+      </div>
+
+      <div class="admin-toolbar">
+        <input id="adminSearch" class="input" placeholder="搜尋商品名稱或 SKU" style="flex:1;min-width:220px;">
+        <select id="adminCategoryFilter" class="input" style="width:auto;">
+          <option>全部</option>
+          <option>洋裝</option><option>上衣</option><option>外套</option><option>裙裝</option><option>配件</option><option>鞋款</option>
+        </select>
+        <button class="btn small ghost" id="adminRefreshBtn">同步資料</button>
+        <button class="btn small" id="adminAddBtn">＋ 新增商品</button>
+      </div>
+
+      <div id="adminGrid" class="grid admin-grid"></div>
     </div>
 
-    <div id="adminGrid" class="grid admin-grid"></div>
+    <!-- 訂單管理面板 -->
+    <div id="adminOrdersPanel" style="display:none">
+      <div class="admin-stats">
+        <div class="stat-card">
+          <div class="stat-icon">🧾</div>
+          <div><div class="stat-label">訂單總數</div><div class="stat-value" id="orderStatCount">0 筆</div></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">💰</div>
+          <div><div class="stat-label">累計營收</div><div class="stat-value" id="orderStatRevenue">NT$ 0</div></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon warn">⏳</div>
+          <div><div class="stat-label">待處理訂單</div><div class="stat-value" id="orderStatPending">0 筆</div></div>
+        </div>
+      </div>
+
+      <div class="admin-toolbar">
+        <input id="orderSearch" class="input" placeholder="搜尋訂單編號、姓名或電話" style="flex:1;min-width:220px;">
+        <button class="btn small ghost" id="orderRefreshBtn">同步資料</button>
+      </div>
+
+      <div id="ordersList"></div>
+    </div>
   </div>
 </div><!-- /adminView -->
 
@@ -1563,6 +1632,19 @@
     if(mode === 'admin') renderAdmin();
   }
 
+  /* ---- 商品管理 / 訂單管理 分頁切換 ---- */
+  let adminTab = 'products';
+  let ordersLoaded = false;
+  document.querySelectorAll('.admin-tab').forEach(t => {
+    t.addEventListener('click', () => {
+      adminTab = t.dataset.admintab;
+      document.querySelectorAll('.admin-tab').forEach(x => x.classList.toggle('active', x === t));
+      document.getElementById('adminProductsPanel').style.display = adminTab === 'products' ? '' : 'none';
+      document.getElementById('adminOrdersPanel').style.display = adminTab === 'orders' ? '' : 'none';
+      if (adminTab === 'orders' && !ordersLoaded) loadOrders();
+    });
+  });
+
   document.getElementById('adminRefreshBtn').addEventListener('click', loadProducts);
   document.getElementById('adminAddBtn').addEventListener('click', ()=>openProductModal(null));
   document.getElementById('adminSearch').addEventListener('input', renderAdmin);
@@ -1623,6 +1705,106 @@
     if(toggle) doToggleStatus(Number(toggle.dataset.toggle));
     if(del) openDeleteModal(Number(del.dataset.del));
   });
+
+  /* ---- 訂單管理 ---- */
+  let orders = [];
+  const ordersList = document.getElementById('ordersList');
+  const payLabelMap = { card: '信用卡付款', linepay: 'LINE Pay', atm: 'ATM 轉帳', cod: '貨到付款' };
+  const payStatusMap = {
+    paid: { label: '已付款', cls: 'live' },
+    pending: { label: '處理中', cls: 'out' },
+    failed: { label: '付款失敗', cls: 'off' },
+  };
+
+  async function loadOrders(){
+    ordersList.innerHTML = `<div class="conn-status"><div class="spinner"></div><p>載入訂單資料中…</p></div>`;
+    try {
+      orders = await apiFetch('/api/admin/orders', { headers: { Authorization: 'Bearer ' + adminToken } });
+      ordersLoaded = true;
+      renderOrders();
+    } catch(e){
+      ordersList.innerHTML = `<div class="conn-status"><p>${e.message || '載入訂單失敗'}</p><button class="btn small" id="retryOrders">重新載入</button></div>`;
+      document.getElementById('retryOrders')?.addEventListener('click', loadOrders);
+    }
+  }
+
+  document.getElementById('orderRefreshBtn').addEventListener('click', loadOrders);
+  document.getElementById('orderSearch').addEventListener('input', renderOrders);
+
+  function renderOrders(){
+    const q = (document.getElementById('orderSearch').value || '').toLowerCase();
+    const filtered = orders.filter(o =>
+      o.order_no.toLowerCase().includes(q) ||
+      o.customer_name.toLowerCase().includes(q) ||
+      (o.phone || '').includes(q)
+    );
+
+    document.getElementById('orderStatCount').textContent = orders.length + ' 筆';
+    document.getElementById('orderStatRevenue').textContent = fmt(orders.reduce((s,o)=>s+o.total,0));
+    document.getElementById('orderStatPending').textContent = orders.filter(o=>o.payment_status==='pending').length + ' 筆';
+
+    if(filtered.length === 0){
+      ordersList.innerHTML = `<div class="conn-status"><p>目前沒有符合條件的訂單</p></div>`;
+      return;
+    }
+
+    ordersList.innerHTML = filtered.map(o => {
+      const statusInfo = payStatusMap[o.payment_status] || payStatusMap.pending;
+      const dateStr = (o.created_at || '').replace('T',' ').slice(0,16);
+      return `
+      <div class="order-card">
+        <div class="order-card-head">
+          <div>
+            <div class="order-no-label">訂單編號 ${o.order_no}</div>
+            <div class="order-date">${dateStr}${o.customer_id ? '　·　會員訂單' : '　·　訪客訂單'}</div>
+          </div>
+          <div class="order-badges">
+            <span class="status-pill ${statusInfo.cls}">${statusInfo.label}</span>
+          </div>
+        </div>
+        <div class="order-body">
+          <div class="order-col">
+            <div class="order-field">
+              <div class="order-field-label">會員姓名</div>
+              <div class="order-field-value">${o.customer_name}</div>
+            </div>
+            <div class="order-field">
+              <div class="order-field-label">聯絡電話</div>
+              <div class="order-field-value">${o.phone}</div>
+            </div>
+            <div class="order-field">
+              <div class="order-field-label">電子信箱</div>
+              <div class="order-field-value">${o.email}</div>
+            </div>
+            <div class="order-field">
+              <div class="order-field-label">收件地址</div>
+              <div class="order-field-value">${o.address}</div>
+            </div>
+            <div class="order-field" style="margin-bottom:0;">
+              <div class="order-field-label">交易方式</div>
+              <div class="order-field-value">${payLabelMap[o.pay_method] || o.pay_method}</div>
+            </div>
+          </div>
+          <div class="order-col">
+            <div class="order-field-label" style="margin-bottom:8px;">產品明細</div>
+            <div class="order-items-list">
+              ${o.items.map(it => `
+                <div class="order-item-row">
+                  <span>${it.product_name} × ${it.qty}</span>
+                  <span>${fmt(it.unit_price * it.qty)}</span>
+                </div>
+              `).join('')}
+            </div>
+            <div class="order-total-row"><span>小計</span><span>${fmt(o.subtotal)}</span></div>
+            <div class="order-total-row"><span>運費</span><span>${o.shipping_fee === 0 ? '免運' : fmt(o.shipping_fee)}</span></div>
+            ${o.extra_fee > 0 ? `<div class="order-total-row"><span>手續費</span><span>${fmt(o.extra_fee)}</span></div>` : ''}
+            <div class="order-total-row grand"><span>總金額</span><span>${fmt(o.total)}</span></div>
+          </div>
+        </div>
+      </div>
+    `;
+    }).join('');
+  }
 
   let pendingImageBase64 = null;
   const imageUploadBox = document.getElementById('imageUploadBox');
